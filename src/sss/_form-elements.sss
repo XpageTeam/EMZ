@@ -1,0 +1,501 @@
+#service, #quality
+	width: 1000px
+
+.popup-form
+	display: none
+	border: 1px solid var(--borderColor)
+	padding: 55px 65px 70px !important
+	width: 655px
+
+	&__title
+		font-size: 30px
+		margin-bottom: 20px
+
+	&__text, &__title, &__info
+		text-align: center
+
+	&__text
+		color: rgba(#000, .5)
+		max-width: 745px
+		margin: 0 auto 50px
+
+	&__text, &__info
+		line-height: calc(20 / 12)
+		font-size: 12px
+
+	&__info
+		margin: 32px 0 0
+	
+	.forms
+
+		&__error
+
+			&-message
+				top: calc(100% + 1px)
+				left: 0
+				right: 0
+				box-shadow: none
+				border: none
+				background: none
+				padding: 0 0 2px
+				color: var(--mainColor)
+
+				&:after
+					display: none
+
+		&__input
+
+			&:focus
+
+				~ .forms
+
+					&__error
+
+						&-message
+							color: rgba(#000, .5)
+
+.checkbox
+	position: relative
+
+	&__input
+		position: absolute 0 * * 0
+		opacity: 0
+		pointer-events: none
+
+		&:checked
+
+			~ label
+
+				&:after
+					opacity: 1
+
+	&__label
+		cursor: pointer
+		display: flex
+		align-items: center
+		position: relative
+		user-select: none
+
+		&:before, &:after
+			content: ""
+			display: inline-block
+
+		&:before
+			flex: none
+			background: #fff
+			border: 1px solid #e8e8e8
+			margin: 0 15px 0 0
+			border-radius: 7px
+			size: 32px
+
+		&:after
+			border: 2px solid var(--mainColor)
+			border-top: none
+			border-left: none
+			size: 9px 12px
+			transform: rotateZ(45deg)
+			position: absolute 7px * * 12px
+			transition: opacity .1s ease
+			opacity: 0
+
+.forms__inputs
+	display: flex
+	flex-wrap: wrap
+	margin: 0 0 -40px -27px
+
+	.forms
+
+		&__input-cont
+			width: calc((100% - 25px * 2) / 2)
+			margin: 0 0 40px 25px
+
+	&--column
+		flex-direction: column
+		margin: 0 !important
+
+		.forms
+
+			&__input-cont
+				width: 100%
+				margin: 0
+
+				&:not(:first-child)
+					margin: 25px 0 0
+
+		~ .forms
+
+			&__submit
+				margin: 23px 0 0 
+
+.form-req
+	text-align: center
+	vertical-align: top
+	font-size: 12px
+
+	i
+		font-style: normal
+		border-radius: 50%
+		color: #fff var(--mainColor)
+		size: 22px
+		display: inline-block
+		padding-top: 3px
+		margin: 0 10px 0 0
+		font-size: 15px
+
+.forms
+
+	&__submit
+		text-align: center
+		margin: 70px 0 0
+
+	&__req
+		margin: 40px 0 0
+
+	&__input
+		border: 1px solid transparent
+		padding: 31px 10px 13px 23px
+		height: 67px
+		transition: border-color .3s ease, background-color .3s ease
+		width: 100%
+		background-color: #f8f8f8
+		background-position: right 26px center 
+		background-repeat: no-repeat
+
+		&--error:not(:valid)
+			border-color: red
+
+			~ .forms__error-message
+				opacity: 1
+
+			&:focus
+
+			~ .forms__error-message
+				opacity: 0
+
+
+		&::-webkit-input-placeholder
+			transition: opacity .3s ease
+			color: rgba(#000, .5)
+
+		&:-moz-placeholder
+			transition: opacity .3s ease
+			color: rgba(#000, .5)
+
+		&::-moz-placeholder
+			transition: opacity .3s ease
+			color: rgba(#000, .5)
+
+		&:-ms-input-placeholder
+			transition: opacity .3s ease
+			color: rgba(#000, .5)
+
+		&:not(:focus)
+
+			&::-webkit-input-placeholder
+				opacity: 0
+
+			&:-moz-placeholder
+				opacity: 0
+
+			&::-moz-placeholder
+				opacity: 0
+
+			&:-ms-input-placeholder
+				opacity: 0
+
+			&.js__have-content:valid
+				background-image: url("../img/ico-true.svg")
+
+			&.js__have-content:invalid
+				background-image: url("../img/ico-close-red.svg")
+
+		&:focus
+			border-color: #eaeaed
+			background-color: transparent
+
+			&::-webkit-input-placeholder
+				opacity: 1 !important
+
+			&:-moz-placeholder
+				opacity: 1 !important
+
+			&::-moz-placeholder
+				opacity: 1 !important
+
+			&:-ms-input-placeholder
+				opacity: 1 !important
+
+		&:focus, &.js__have-content
+
+			~ label
+				transform: translate3d(0, -12px, 0)
+				font-size: 12px
+
+		&--select
+			padding: 0 30px 0 25px
+			background: url("../img/ico-select-arrow-black.png") right 18px center no-repeat, #f8f8f8
+
+			&.selectize-control
+				padding: 0
+
+			.selectize
+
+				&-input
+					height: 100%
+					background-color: inherit !important
+					padding: 0 30px 0 25px
+					box-shadow: none  !important
+					border-radius: 0
+					border-color: transparent
+					display: flex !important
+					align-items: center
+
+					&.input-active
+						background-color: #fff !important
+						border-color: #eaeaed
+
+					input
+						display: none !important
+
+					.item
+						font-size: 16px
+
+				&-dropdown
+					height: auto
+
+					&-content
+
+						.option
+							cursor: pointer
+
+							&.active
+								background: var(--secondColor)		
+
+		&-cont
+			display: flex
+			flex-direction: column-reverse
+			position: relative
+			justify-content: flex-end
+
+			&--file
+				flex-wrap: wrap
+				flex-direction: row
+				justify-content: flex-start
+
+			&--double
+				flex-direction: row
+				flex-wrap: wrap
+				justify-content: space-between
+
+				.forms__input-cont
+					margin-top: 0 !important
+					width: calc(50% - 10px)
+
+		&[required] ~ label
+
+			&:after
+				content: "*"
+				display: inline-block
+
+		&--textarea
+			max-width: 100%
+			height: 101px
+			resize: none
+
+		&--file
+			opacity: 0
+			position: absolute 0 * * 0
+			pointer-events: none
+
+			~ .forms__input
+				width: calc(100% - 147px)
+
+	&__label
+		margin-bottom: 10px
+		flex: none
+		position: absolute 0 * * 0
+		padding: 24px 0 0 22px
+		transition: font-size .3s ease, transform .3s ease
+		pointer-events: none
+		font-size: 15px
+		color: rgba(#000, .5)
+
+		&--file
+			position: static
+			flex: none
+			pointer-events: all
+			background: url("../img/ico-file-select.png") left 23px center no-repeat, #f8f8f8
+			size: 133px 67px
+			margin: 0
+			font-size: 14px !important
+			color: #000
+			padding: 24px 20px 25px 58px
+			cursor: pointer
+			margin-left: auto
+			transform: none !important
+
+.top-label
+	width: 100%
+	color: rgba(#000, .5)
+	margin-bottom: 15px
+
+.file-extensions
+	color: rgba(#000, .5)
+	font-size: 12px
+	margin: 12px 0 0
+
+.forms-bot
+	margin: 28px 0 0
+	display: flex
+	justify-content: space-between
+	align-items: center
+
+	&__links
+		text-align: right
+
+	input[type="submit"]
+
+		&:first-child:last-child
+			width: 100%
+
+.form-links
+
+	&__link
+		color: var(--mainColor)
+		border-bottom: 1px solid #d4e3f6
+
+.forms
+	
+	&__error
+
+		&-message
+			border: 1px solid #d4d4d4
+			background: #fff
+			color: #000
+			padding: 7px 10px
+			border-radius: 7px
+			position: absolute
+			bottom: 45px
+			right: -6px
+			box-shadow: 0px 0px 21px 0px rgba(0, 0, 0, 0.1)
+			transition: opacity .3s ease
+			user-select: none
+			font-size: 12px
+
+			opacity: 0
+			pointer-events: none
+
+			&:after
+				content: ""
+				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAIBAMAAADU/bjBAAAAGFBMVEX////V1dXV1dXY2Nji4uL9/f3+/v7///88REMWAAAAA3RSTlMAipDLFSdbAAAAM0lEQVQI12NwKweBMgcGlXQQI0WBgQkkVObEwAAWAgowgITAAiAhsABQyBUiwMAgLAAkAJ+wDc+KWF7qAAAAAElFTkSuQmCC)
+				position: absolute
+				top: calc(100% - 0px)
+				right: 19px
+				height: 8px
+				width: 15px
+
+			&-icon
+				display: block
+				border-radius: 50%
+				position: absolute
+				border: 1px solid #ff0024
+				height: 19px
+				width: 19px
+				background: #fff
+				bottom: -32px
+				right: 16px
+
+				&:before, &:after
+					content: ""
+					position: absolute
+					width: 1px
+					background: #ff0024
+					left: calc(50% - 1px)
+
+				&:before
+					top: 4px
+					height: 8px
+
+				&:after
+					bottom: 4px
+					height: 2px
+
+.forms-info
+	letter-spacing: .02em
+	flex: 1 1 auto
+	display: flex
+	align-items: center
+	padding: 34px 0 0
+
+	&:before
+		content: ""
+		size: 34px
+		border-radius: 50%
+		background: url("../img/ico-!.png") center no-repeat, var(--mainColor)
+		margin-right: 27px
+		flex: none
+
+
+
+
+
+@media screen and (max-width: 1000px)
+	.popup-form
+		padding: 20px !important
+
+		&__title
+			font-size: 24px
+
+		&__text
+			margin-bottom: 20px
+
+		&__info
+			margin: 25px 0 0
+
+	.forms
+
+		&__req, &__submit
+			margin: 20px 0 0
+
+
+@media screen and (max-width: 660px)
+	.fancybox
+
+		&-slide
+
+			&--html
+				padding: 0 !important
+
+				&:before
+					display: none !important
+
+	.forms
+
+		&__inputs
+			display: block
+			margin: 0
+
+		&__input
+
+			&-cont
+				width: auto !important
+				margin: 0 !important
+
+				&:not(:first-child)
+					margin: 32px 0 0 !important
+
+				&--double
+
+					.forms
+
+						&__input
+
+							&-cont
+								margin-top: 0 !important
+								width: 100% !important
+
+								&:not(:first-child)
+									margin: 15px 0 0 !important
+
+	.popup-form
+		padding: 20px 16px !important

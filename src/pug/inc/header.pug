@@ -1,0 +1,29 @@
+header.head
+	.wrapper
+		.head__wrap
+			.head__logo
+				a.logo(href="#")
+					img(src="img/logo.svg", alt="")
+			nav.head__menu
+				ul.h-menu
+					each item, i in ["О компании", "Каталог продукции", "Сертификаты и лицензии", "Вакансии", "Контакты"]
+						li.h-menu__item
+							if (i == 0)
+								a.h-menu__link.active(href="#")
+									span=item
+							else
+								a.h-menu__link(href="#")
+									span=item
+			.head__search
+				.h-search
+					form(action="#")
+						input.h-search__input(type="text" placeholder="Поиск")
+						input.h-search__submit(type="submit")
+			.head__links
+				.langs
+					a.langs__link.active(href="#") ru
+					a.langs__link(href="#") eng
+				address.h-phone
+					a(href="tel: 8 (800) 000-00-00") 8 (800) 000-00-00
+				address.h-mail
+					a(href="mailto: tems@chel.surnet.ru")  tems@chel.surnet.ru

@@ -1,0 +1,35 @@
+.main-about
+	display: flex
+	justify-content: space-between
+	align-items: center
+	padding: 92px 0 115px
+
+	&__text-block
+		max-width: 530px
+
+	&__slider
+		flex: none
+		margin-right: 108px
+		width: 483px
+
+.about-text
+
+	&__title
+
+		&:not(:last-child)
+			margin-bottom: 25px
+
+	&__text
+		line-height: calc(26 / 14)
+		font-size: 14px
+
+		&:not(:last-child)
+			margin-bottom: 37px
+
+.about-slide
+
+	.swiper-lazy
+		display: block
+
+		&:not(.swiper-lazy-loaded)
+			min-height: 362px

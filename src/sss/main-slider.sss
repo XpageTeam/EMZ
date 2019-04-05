@@ -1,0 +1,89 @@
+.main-slider
+	position: relative
+
+	.wrapper
+		width: 100%
+
+	.swiper
+
+		&-pagination
+			display: inline-flex
+			position: static
+			pointer-events: all
+
+			&-bullets
+				flex-direction: column
+
+			&-bullet
+				size: 9px
+				opacity: 1
+				transition: background .3s ease
+				position: relative
+
+				&:before
+					content: ""
+					position: absolute -5px
+
+				&:not(:last-child)
+					margin-bottom: 25px
+
+				&-active
+					background: var(--main-color)
+
+				&:not(.swiper-pagination-bullet-active)
+					background: #fff
+
+	&__bullets
+		display: flex
+		flex-direction: column
+		justify-content: center
+		position: absolute 0
+		z-index: 1
+		text-align: right
+		pointer-events: none
+
+	&__slide
+		position: relative
+
+		&:before
+			content: ""
+			position: absolute 0
+			background: rgba(#0C0C1E, .7)
+
+		&-img
+			display: block
+
+			img
+				display: block
+				width: 100%
+
+			.swiper-lazy
+
+				&:not(.swiper-lazy-loaded)
+
+					+ img
+						min-height: vh(704)
+		
+		&-text
+			position: absolute 0
+			color: #fff
+			display: flex
+			flex-direction: column
+			justify-content: center
+			align-items: stretch
+			pointer-events: all
+
+.slide-text
+
+	&__title
+		font-size: 50px
+		line-height: normal
+
+		&:not(:last-child)
+			margin-bottom: 25px
+
+	&__subtitle
+		line-height: 1
+
+		&:not(:last-child)
+			margin-bottom: 47px

@@ -1,0 +1,125 @@
+html(lang="ru")
+	head
+		meta(charset="utf-8")
+		title Главная
+		include inc/head.pug
+		include inc/css.pug
+	body.main.loading
+		include inc/header.pug
+		main#content
+			.main-slider
+				.swiper-wrapper
+					.swiper-slide
+						.main-slider__slide
+							picture.main-slider__slide-img
+								source(data-srcset="img/photos/main-slider-img.jpg" class="swiper-lazy" media="screen and (min-width: 659px)")
+								source(data-srcset="img/photos/main-slider-img.jpg" class="swiper-lazy" media="screen and (max-width: 660px)")
+								img
+							.swiper-lazy-preloader
+							.main-slider__slide-text
+								.wrapper
+									.slide-text
+										.slide-text__title АО «Троицкий 
+											br
+											| электромеханический завод»
+										.slide-text__subtitle Теплообменное оборудование
+										.slide-text__btn
+											a.default-btn(href="#") Каталог продукции
+					.swiper-slide
+						.main-slider__slide
+							picture.main-slider__slide-img
+								source(data-srcset="img/photos/main-slider-img.jpg" class="swiper-lazy" media="screen and (min-width: 659px)")
+								source(data-srcset="img/photos/main-slider-img.jpg" class="swiper-lazy" media="screen and (max-width: 660px)")
+								img
+							.swiper-lazy-preloader
+							.main-slider__slide-text
+								.wrapper
+									.slide-text
+										.slide-text__title АО «Троицкий 
+											br
+											| электромеханический завод»
+										.slide-text__subtitle Теплообменное оборудование
+										.slide-text__btn
+											a.default-btn(href="#") Каталог продукции
+					.swiper-slide
+						.main-slider__slide
+							picture.main-slider__slide-img
+								source(data-srcset="img/photos/main-slider-img.jpg" class="swiper-lazy" media="screen and (min-width: 659px)")
+								source(data-srcset="img/photos/main-slider-img.jpg" class="swiper-lazy" media="screen and (max-width: 660px)")
+								img
+							.swiper-lazy-preloader
+							.main-slider__slide-text
+								.wrapper
+									.slide-text
+										.slide-text__title АО «Троицкий 
+											br
+											| электромеханический завод»
+										.slide-text__subtitle Теплообменное оборудование
+										.slide-text__btn
+											a.default-btn(href="#") Каталог продукции
+				.main-slider__bullets
+					.wrapper
+						.swiper-pagination
+			.main-about__cont
+				.wrapper
+					.main-about
+						.main-about__text-block
+							.about-text
+								.about-text__title 
+									.main-title О нас
+								.about-text__text
+									.text-page
+										p АО «Троицкий электромеханический завод» уже более 75 лет занимается разработкой и производством теплообменного оборудования. Предприятие обладает лицензиями на конструирование и изготовление теплообменного оборудования, сертифицируемого Российским Морским Регистром судоходства, которое используется в силовых агрегатах морских судов. 
+										p В настоящее время на заводе продолжается работа по разработке новых типов и видов теплообменного оборудования (в т.ч. подогреватели низкого давления ПН подогреватели сетевой воды серии ПСВ, ТНВ; увеличено производство теплообменного оборудования для Атомных станций ближнего и дальнего зарубежья), проводятся опытные работы, испытания, модернизация производства, технологий.
+								.about-text__btn
+									a.default-btn(href="#") Узнать больше
+						.main-about__slider
+							.about-slider
+								.swiper-wrapper
+									- for (let i = 0; i < 3; i++)
+										.swiper-slide
+											figure.about-slide
+												img.swiper-lazy(data-src="img/photos/about-slider-"+i+".jpg")
+												.swiper-lazy-preloader
+							.main-about__slider-arrows
+			.main-catalog__cont
+				.wrapper
+					.main-catalog
+						.main-catalog__title 
+							.main-title Каталог продукции
+						.main-catalog__subtitle АО «Троицкий электромеханический завод» уже более 75 лет занимается разработкой и производством теплообменного оборудования.
+						.main-catalog__list
+							.catalog-list
+								each item in ["Воздухоохладители", "Газоохладители", "Маслоохладители", "Калориферы", "Кожухотрубные теплообменники", "Трубы оребренные", ]
+									.catalog-list__item
+										a.catalog-item(href="#")
+											.catalog-item__title=item
+											.catalog-item__btn
+												.arrow-btn
+			.main-advantages__cont
+				.wrapper
+					.main-advantages
+						.main-advantages__title 
+							.main-title Приемущества
+						.main-advantages__list
+							.advantages-list
+								- for (let i = 0; i < 8; i++)
+									.advantages-list__item
+										.advantage
+											figure.advantage__img
+												img(src="img/ico-advantage.svg")
+											.advantage__title Уникальность продукции
+											.advantage__text АО «ТЭМЗ» единственный в РФ производитель панельных маслоохладителей и охлаждающих устройств типа ОДЦ.
+			.main-partners__cont
+				.wrapper
+					.main-partners
+						.main-partners__title
+							.main-title Партнёры
+						.main-partners__list
+							.partners-list
+								- for (let i = 0; i < 12; i++)
+									.partners-list__item
+										figure.partner
+											img(src="img/photos/partner-"+i+".jpg")
+		include inc/footer.pug
+		include inc/scripts.pug

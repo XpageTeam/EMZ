@@ -1,0 +1,240 @@
+.text-page
+	font-weight: 400
+
+	> *:not(:first-child)
+		margin-top: 32px
+
+	strong
+		font-weight: bold
+
+	h2, h3, h4, h5, h6
+		font-weight: 300
+
+		&:not(:first-child)
+			margin-top: 40px
+
+	h2
+		font-size: 26px
+		line-height: calc(32 / 26)
+		margin-bottom: 40px
+
+	h3
+		font-size: 22px
+		line-height: calc(28 / 22)
+
+	h4
+		font-size: 18px
+		line-height: calc(28 / 18)
+
+	h5, h6
+		font-size: rem(16)
+		line-height: calc(24 / 16)
+
+	blockquote
+		background: var(--secondColor)
+		padding: 30px 40px
+
+		i
+			display: block
+			background: #fff
+			margin: -30px -40px
+			padding: inherit
+
+	[align="right"]
+		float: right
+		margin-left: 44px
+
+	[align="left"]
+		float: left
+		margin-right: 44px
+
+	img[height]
+		height: auto
+
+	[align]
+		margin-bottom: 35px
+
+	table
+		font-size: 14px
+
+		thead
+
+			th, td
+				background: #ececec
+
+		td, th
+			padding: 15px
+			font-weight: inherit
+
+			&:not([valign]), &[valign="middle"]
+				vertical-align: middle
+
+			&[valign="top"]
+				vertical-align: top
+
+			&[valign="bottom"]
+				vertical-align: bottom
+
+	table[border="1"]
+		min-width: 100%
+
+		td, th
+			border: 1px solid #e7e7e7
+
+		tr
+
+			&:hover
+
+				td
+					background: #edf1e0
+
+	li
+
+		&:not(:first-child)
+			margin: 3px 0 0
+
+		&:before
+			display: inline-block
+
+		ul, ol
+			margin-bottom: 20px
+			margin-top: 0
+
+		li
+			padding-left: 10px
+
+			&:before
+				margin-right: 10px !important
+
+			&:not(:first-child)
+				margin-top: 5px
+
+	ul
+
+		&:not([class])
+
+			> li
+				padding-left: 25px
+
+				&:before
+					content: ""
+					margin: 0 16px 2px -22px
+					display: inline-block
+					border-radius: 50%
+					background: var(--mainColor)
+					size: 6px
+
+		> li
+
+			li
+				padding-left: 30px
+
+	ol
+		counter-reset: i
+
+		> li
+			counter-increment: i
+			font-weight: bold
+			padding-left: 18px
+
+			&:before
+				content: counter(i) "."
+				margin: 0 8px 0 -18px
+
+			li
+				font-weight: 300
+				margin: 23px 0 0 !important
+
+		ul
+
+			> li
+				padding-left: 14px
+
+				&:before
+					content: "–" !important
+					background: none !important
+					border-radius: 0 !important
+					size: auto !important
+					margin: 0 7px 0 -14px
+
+@media screen and (max-width: 1600px)
+	.text-page
+
+		h2
+			margin-bottom: 30px
+
+		> *
+
+			&:not(:first-child)
+				margin-top: 20px
+
+		[align]
+			margin-bottom: 20px
+
+		[align="left"]
+			margin-right: 16px
+
+		[align="right"]
+			margin-left: 16px
+
+@media screen and (max-width: 1000px)
+	.text-page
+		font-size: 14px
+
+		> *:not(:first-child)
+			margin-top: 18px
+
+@media screen and (max-width: 660px)
+	.text-page
+		
+		> *:not(:first-child)
+			margin-top: rem(16)
+
+		h2
+			font-size: 17px
+			margin-bottom: 22px
+
+		h3
+			font-size: 16px
+
+		h4
+			font-size: 15px
+
+		h5, h6
+			font-size: 14px
+
+		blockquote
+			padding: 20px
+
+			> i
+				margin: -20px
+
+		ul
+
+			&[class]
+
+				> li
+					padding-left: 20px
+
+					&:before
+						margin: 0 8px 0 -20px
+
+			&:not([class])
+
+				> li
+					padding-left: 20px
+
+					&:before
+						margin: 0 19px 0px -18px
+
+		ol
+
+			> li
+
+				li
+					margin: 17px 0 0 !important
+
+		h2, h3, h4, h5, h6
+
+			&:not(:first-child)
+				margin-top: 25px

@@ -1,0 +1,189 @@
+.has-top-slider
+
+	.title-block
+		position: absolute 0
+		max-width: var(--base-width)
+		color: #fff
+		padding: 120px 2rem 0
+		box-sizing: content-box
+		margin: 0 auto
+		display: flex
+		flex-direction: column
+		justify-content: center
+
+		&__title
+			margin-bottom: 50px
+
+			h1
+				font-size: 60px
+				line-height: calc(56 / 60)
+				font-weight: 300
+
+		&__crumbs
+			display: flex
+			justify-content: space-between
+			align-items: flex-end
+
+			.bread-crumbs
+
+				&__this
+					color: #fff
+
+				&__link
+
+					&:after
+						color: #fff
+
+.title-slider
+	position: relative
+	max-width: 100%
+
+	&:after
+		content: ""
+		position: absolute 0
+		background: rgba(#000, .3)
+
+	&__progress
+		position: relative
+		size: 195px 1px
+		background: #fff
+
+		&:after
+			content: ""
+			position: absolute * 0 0 0
+			background: var(--mainColor)
+			transform-origin: right
+			size: 100% 2px
+
+		&.active
+
+			&:after
+				transition: transform .3s linear
+				transition-duration: inherit !important
+				transform: scale3d(0, 1, 1)
+
+.title-slide
+	display: flex !important
+	align-items: flex-start
+
+	&:not(:first-child)
+		display: none !important
+
+	img
+		display: block
+		width: 100%
+
+.title-block
+	flex: 1 1 auto
+
+	&__crumbs
+		margin: 7px 0 0
+
+	&__title
+
+		h1
+			font-weight: 300
+			font-size: 30px
+			line-height: calc(32 / 28)
+
+.title-btn
+
+	.right-btn__link
+		border-radius: 32px
+
+.bread-crumbs
+	font-size: 13px
+
+	&__link
+		margin-right: 27px
+		position: relative
+		color: var(--mainColor)
+
+		&:after
+			content: "|"
+			color: #989898
+			position: absolute
+			left: calc(100% + 11px)
+
+	&__this
+		color: #989898
+
+
+@media screen and (max-width: 1600px)
+	.has-top-slider
+
+		.title-block
+			padding: 105px 2rem 0
+
+@media screen and (max-width: 1000px)
+	.title-block
+
+		&__title
+			margin-bottom: 0 !important
+
+			h1
+				font-size: 26px !important
+
+@media screen and (max-width: 660px)
+	.inner-content
+
+		&__title-block
+			margin: 0 0 25px
+
+			.wrapper
+				padding: 0
+
+	.title-slider__progress
+		display: none
+	
+	.title-block
+		padding: 0 20px !important
+		background: #f7f7f7
+		position: relative !important
+
+		&__crumbs
+			margin: 0
+
+		&__title
+			padding: 20px 30px
+			text-align: center
+
+			&:before
+				display: none
+
+			h1
+				font-size: 18px !important
+				color: #000
+
+				br
+					display: none
+
+	.bread-crumbs
+		position: absolute calc(50% - 15px) * * 15px
+
+		&__this
+			display: none
+
+		&__link
+
+			&:not(:nth-last-child(2))
+				display: none
+
+			&:nth-last-child(2)
+				margin: 0
+				overflow: hidden
+				size: 30px
+				text-indent: -9999px
+				display: block
+				position: relative
+
+				&:after
+					display: none
+
+				&:before
+					content: ""
+					position: absolute calc(50% - 6px) calc(50% - 6px) * *
+					border-left: 2px solid #dbdbdb
+					border-bottom: 2px solid #dbdbdb
+					size: 12px
+					transform: rotateZ(45deg)

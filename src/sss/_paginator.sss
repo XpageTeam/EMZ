@@ -1,0 +1,52 @@
+.paginator
+	display: flex
+	justify-content: center
+	margin: rem(65) 0 0
+
+	&-arrow, &__link
+		display: block
+		border-radius: 50%
+		size: 30px
+
+	&-arrow
+
+		&:not(.unactive)
+			background: url("../img/paginator-arrow.svg") center no-repeat
+
+		&.unactive
+			background: url("../img/paginator-arrow-unactive.svg") center no-repeat
+			pointer-events: none
+
+	li
+
+		&:first-child
+
+			.paginator-arrow
+
+				&:not(.unactive)
+					transform: rotate(180deg)
+
+		&:last-child
+
+			.paginator-arrow
+
+				.unactive
+					transform: rotate(180deg)
+
+	&__link
+		line-height: 30px
+		font-size: rem(14)
+		text-align: center
+
+		&.active
+			color: #fff
+			background: var(--mainColor)
+
+	li
+
+		&:not(:last-child)
+			margin-right: 6px
+
+@media screen and (max-width: 1000px)
+	.paginator
+		margin: 30px 0 0

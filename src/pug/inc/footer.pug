@@ -1,0 +1,40 @@
+footer.footer
+	.wrapper
+		.footer__wrap
+			.footer__copy
+				a.f-logo(href="#")
+					img(src="img/logo.svg")
+				.copy © АО «Троицкий 
+					br
+					| электромеханический 
+					br
+					| завод», 2019
+			.footer__right
+				nav.footer__menu
+					ul.f-menu
+						li.f-menu__item.f-menu__item--parent
+							a.f-menu__link(href="#") О компании
+						each item in ["История", "Цель/миссия", "Производство", "Инжиниринг", "Фин.отчётность", ]
+							li.f-menu__item
+								a.f-menu__link(href="#")=item
+					ul.f-menu
+						li.f-menu__item.f-menu__item--parent
+							a.f-menu__link(href="#") Каталог продукции
+						each item in ["Воздухоохладители", "Газоохладители", "Маслоохладители", "Калориферы", "Кожухотрубные теплообменники", "Трубы оребренные"]
+							li.f-menu__item
+								a.f-menu__link(href="#")=item
+					ul.f-menu
+						each item in ["Сертификаты и лицензии", "Вакансии", "Контакты", "Финансовая отчетность", ]
+							li.f-menu__item.f-menu__item--parent
+								a.f-menu__link(href="#")=item
+				.footer__right-right
+					div
+						address.h-phone
+							a(href="tel: 8 (800) 000-00-00") 8 (800) 000-00-00
+						address.h-mail
+							a(href="mailto: tems@chel.surnet.ru")  tems@chel.surnet.ru
+					.footer__right-sert
+						a.sert-link(href="#") Сертификато ISO 9001
+					.footer__right-developer
+						a.developer(href="#")
+							img(src="img/developer.svg")

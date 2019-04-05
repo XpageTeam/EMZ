@@ -1,0 +1,44 @@
+.main-catalog
+
+	&__cont
+		background: #F4F4F7
+		padding: 90px 0 115px
+
+	&__title
+
+		&:not(:last-child)
+			margin-bottom: 23px
+
+	&__subtitle
+		font-size: 14px
+		line-height: calc(26 / 14)
+		max-width: 650px
+
+		&:not(:last-child)
+			margin-bottom: 50px
+
+.catalog-list
+	display: flex
+	flex-wrap: wrap                           
+	margin: 0 0 -40px -40px
+	
+	&__item
+		width: calc((100% - 40px * 3) / 3)
+		margin: 0 0 40px 40px
+
+.catalog-item
+	display: flex
+	align-items: center
+	justify-content: space-between
+	flex: 1 1 auto
+	background: #fff
+	transition: color .3s ease, background .3s ease
+	padding: 39px 55px 39px
+
+	&__title
+
+		&:not(:last-child)
+			margin-right: 15px
+
+	&:hover, &:focus
+		color: #fff var(--main-color)
