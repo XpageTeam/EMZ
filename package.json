@@ -6,7 +6,7 @@
   "scripts": {
     "finish:him": "webpack --mode production --progress",
     "deploy": "webpack --mode production --progress",
-    "watch": "webpack-dev-server --mode development --watch --open"
+    "watch": "webpack-dev-server --mode development"
   },
   "author": "danil.khandys",
   "license": "ISC",

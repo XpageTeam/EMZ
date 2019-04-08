@@ -5,10 +5,11 @@ class App {
 		document.addEventListener("DOMContentLoaded", callback)
 	}
 
-	public static getElements(selector: string): Array<HTMLElement>{
+	public static getElements(selector: string): NodeList{
 		const elements: any = document.querySelectorAll(selector);
 
 		return elements.length ? elements : []
+		// return this.elementsGetter(selector)
 	}
 
 	public static getElement(selector: string): HTMLElement{
@@ -17,28 +18,31 @@ class App {
 		return element
 	}
 
-	protected elementsGetter(selector: string): Array<HTMLElement>{
+	protected elementsGetter(selector: string): NodeList{
 		const elements: any = document.querySelectorAll(selector);
 
 		return elements.length ? elements : []
 	}
 
-	protected each(elements: Array<HTMLElement>, callback: any): void{
+	protected each(elements: NodeList, callback: any): App{
 
 		for (let i in elements){
 			const el = elements[i];
 
 			callback(el, i).bind(el)
 		}
+
+		return this
 	}
 }
 
 
 class EventListener extends App{
 	private _selector: string
-	private _els: Array<HTMLElement>
+	private _els: NodeList
 
-	constructor (selector: Array<HTMLElement>)
+	constructor (selector: NodeList)
+	constructor (selector: HTMLElement)
 	constructor (selector: string)
 	constructor (selector: any){
 		super()

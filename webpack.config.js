@@ -26,11 +26,16 @@ module.exports = {
 		// "main-page": "./src/ts/main-page.ts",
 	},
 	output: {
-		path: path.resolve(__dirname, "./dist/"),
+		path: path.resolve(__dirname, "./docs/"),
 		filename: "js/[name].js",
 	},
 	devServer: {
-		contentBase: "./dist"
+		contentBase: "./docs",
+		overlay: true,
+	    open: true,
+	    hot: true,
+	    // inline: true,
+	    watchContentBase: true,
 	},
 	devtool: 'source-map',
 	module: {
@@ -160,7 +165,7 @@ module.exports = {
 		}),
 		new CopyWebpackPlugin([{
 			from: 'src/img/',
-			to: path.resolve(__dirname, "dist/img")
+			to: path.resolve(__dirname, "docs/img")
 		}]),
 		new ImageminPlugin({
 			test: /\.(jpe?g|png|gif|svg)$/i,
