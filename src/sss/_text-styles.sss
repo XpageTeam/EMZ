@@ -4,6 +4,22 @@
 	> *:not(:first-child)
 		margin-top: 32px
 
+	> *:not(table, .table-wrap)
+		max-width: 920px
+
+	figure
+
+		figcaption
+			max-width: 100%
+			display: block
+			background: #F4F4F7
+			padding: 23px 33px 26px
+			text-align: left
+			margin: 16px 0 0
+
+			span
+				color: #8D909D
+
 	strong
 		font-weight: bold
 
@@ -14,21 +30,24 @@
 			margin-top: 40px
 
 	h2
-		font-size: 26px
-		line-height: calc(32 / 26)
-		margin-bottom: 40px
+		font-size: 24px
+		// line-height: calc(32 / 26)
+		// margin-bottom: 40px
 
 	h3
 		font-size: 22px
-		line-height: calc(28 / 22)
+		// line-height: calc(28 / 22)
 
 	h4
-		font-size: 18px
-		line-height: calc(28 / 18)
+		font-size: 20px
+		// line-height: calc(28 / 18)
 
-	h5, h6
-		font-size: rem(16)
-		line-height: calc(24 / 16)
+	h5
+		font-size: 18px
+		// line-height: calc(24 / 16)
+
+	h6
+		font-size: 16px 
 
 	blockquote
 		background: var(--secondColor)
@@ -42,11 +61,11 @@
 
 	[align="right"]
 		float: right
-		margin-left: 44px
+		margin-left: 40px
 
 	[align="left"]
 		float: left
-		margin-right: 44px
+		margin-right: 40px
 
 	img[height]
 		height: auto
@@ -117,7 +136,7 @@
 				padding-left: 25px
 
 				&:before
-					content: ""
+					content: "-"
 					margin: 0 16px 2px -22px
 					display: inline-block
 					border-radius: 50%
@@ -134,7 +153,6 @@
 
 		> li
 			counter-increment: i
-			font-weight: bold
 			padding-left: 18px
 
 			&:before
@@ -142,7 +160,6 @@
 				margin: 0 8px 0 -18px
 
 			li
-				font-weight: 300
 				margin: 23px 0 0 !important
 
 		ul

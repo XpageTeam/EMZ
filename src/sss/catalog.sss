@@ -1,0 +1,45 @@
+.catalog
+
+	&__list
+		display: flex
+		flex-wrap: wrap
+		margin: 0 0 -40px -40px
+
+		&-el
+			width: calc((100% - 40px * 3) / 3)
+			margin: 0 0 40px 40px
+			display: flex
+			flex-direction: column
+
+.cat-item
+	flex: 1 1 auto
+	position: relative
+
+	&:after
+		content: ""
+		position: absolute 0
+		background: linear-gradient(to bottom, rgba(#000, .000001), rgba(#000, .7))
+
+	&__desc
+		position: absolute 0
+		z-index: 1
+		color: #fff
+		display: flex
+		font-weight: 300
+		flex-direction: column
+		justify-content: flex-end
+		padding: 10px 53px 40px 49px
+
+	&__img
+		width: 100%
+		display: block
+
+	&__title
+		font-size: 18px
+		line-height: calc(2 / 18)
+		margin-bottom: 18px
+
+	&__subtitle
+		opacity: .8
+		font-size: 14px
+		line-height: calc(26 / 14)

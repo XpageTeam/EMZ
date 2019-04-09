@@ -77,11 +77,14 @@ html(lang="ru")
 							.about-slider
 								.swiper-wrapper
 									- for (let i = 0; i < 3; i++)
-										.swiper-slide
-											figure.about-slide
-												img.swiper-lazy(data-src="img/photos/about-slider-"+i+".jpg")
-												.swiper-lazy-preloader
+										- for (let i = 0; i < 3; i++)
+											.swiper-slide
+												figure.about-slide
+													img.swiper-lazy(data-src="img/photos/about-slider-"+i+".jpg")
+													.swiper-lazy-preloader
 							.main-about__slider-arrows
+								.swiper-button-prev
+								.swiper-button-next
 			.main-catalog__cont
 				.wrapper
 					.main-catalog

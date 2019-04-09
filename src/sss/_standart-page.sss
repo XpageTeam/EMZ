@@ -1,114 +1,54 @@
 .standart-page
 
 	&__text
-		border-top: 2px solid var(--mainColor)
-		background: #f7f7f7
-		padding: 55px 65px
+		font-size: 14px
+		line-height: calc(26 / 14)
 
-		.text-page
-			max-width: 1000px
+	&__map
+		margin: 68px 0 0
 
-	&__another
-		margin: 75px 0 0
-		padding: 0 65px
+	&__slider
+		position: relative
 
-		&-title
-			font-size: 30px
-			margin-bottom: 45px
+		.swiper
 
-	&__arrows
-		display: flex
-		justify-content: space-between
-		margin: 70px 0 0
+			&-button
 
-.another-services
-	display: flex
-	flex-wrap: wrap
-	margin: 0 0 -60px -60px
+				&-prev, &-next
+					size: 43px
+					background: #F4F4F7
+					transition: background .3s ease, color .3s ease
+					border-radius: 6px
+					display: block
+					margin: 0
 
-	&__item
-		width: calc((100% - 60px * 3) / 3)
-		margin: 0 0 60px 60px
-		display: flex
-		flex-direction: column
+					&:hover, &:focus
+						color: #fff var(--main-color)
 
-		&-title
-			flex: none
-			margin-bottom: 21px
-			font-size: 20px
+						&:after
+							border-color: currentColor
 
-		&-text
-			flex: 1 1 auto
-			line-height: calc(24 / 16)
-
-		&-btn
-			margin: 37px 0 0
+					&:after
+						content: ""
+						position: absolute calc(50% - 4px) calc(50% - 2px) * *
+						size: 7px
+						border-right: 1px solid var(--main-color)
+						border-top: 1px solid var(--main-color)
 
 
+				&-next
+					right: -21px
 
-@media screen and (max-width: 1600px) and (min-width: 660px)
-	.standart-page
+					&:after
+						transform: rotate(45deg)
 
-		&__text
-			padding: 35px 30px
+				&-prev
+					left: -31px
 
-		&__another
-			margin: 40px 0 0
-			padding: 0 30px
-
-			&-title
-				margin-bottom: 25px
+					&:after
+						transform: rotate(-135deg)
+						right: calc(50% - 4px)
 
 
-@media screen and (max-width: 1000px)
-	.standart-page
-
-		&__arrows
-			margin: 20px 0 0
-
-@media screen and (max-width: 660px)
-	.standart-page
-		margin: -20px 0 0
-
-		&__text
-			padding: 16px
-			margin: 0 -16px
-
-		&__another
-			margin: 20px 0 0
-			padding: 0
-
-			&-title
-				font-size: 18px
-				margin-bottom: 15px
-
-	.another-services
-		margin: 0
-
-		&__item
-			width: 100%
-			margin: 0
-
-			&:not(:first-child)
-				margin: 20px 0 0
-
-			&-title
-				font-size: 16px
-				margin-bottom: 8px
-
-			&-text
-				font-size: 14px
-
-			&-btn
-				margin: 10px 0 0
-
-	.standart-page
-
-		&__arrows
-			display: block
-
-			.arrow-btn
-				width: 100%
-
-				&:not(:first-child)
-					margin: 16px 0 0
+.standart-slider
+	overflow: hidden

@@ -9,8 +9,49 @@
 
 	&__slider
 		flex: none
-		margin-right: 108px
-		width: 483px
+		padding-right: 108px
+		width: 490px
+		// display: flex
+		position: relative
+
+		img
+			width: 100%
+
+		&-arrows
+			position: absolute 0 0 * *
+
+			.swiper-button
+
+				&-prev, &-next
+					size: 43px
+					background: #fff
+					position: relative auto
+					transition: background .3s ease, color .3s ease
+					border-radius: 6px
+					display: block
+					margin: 0
+
+					&:hover, &:focus
+						color: #fff var(--main-color)
+
+					&:after
+						content: ""
+						position: absolute calc(50% - 4px) calc(50% - 2px) * *
+						size: 7px
+						border-right: 1px solid currentColor
+						border-top: 1px solid currentColor
+
+
+				&-next
+
+					&:after
+						transform: rotate(45deg)
+
+				&-prev
+
+					&:after
+						transform: rotate(-135deg)
+						right: calc(50% - 4px)
 
 .about-text
 
@@ -26,10 +67,48 @@
 		&:not(:last-child)
 			margin-bottom: 37px
 
-.about-slide
+.about-slider
+	flex: none
 
 	.swiper-lazy
 		display: block
 
 		&:not(.swiper-lazy-loaded)
 			min-height: 362px
+
+	.swiper
+
+		&-slide
+			opacity: 1 !important
+
+			&-active, &-next, &-next + .swiper-slide
+
+				.about-slide
+					transform: scale(1)
+					opacity: 1
+
+			&-active
+				z-index: 2
+
+				.about-slide
+					filter: none
+					transform: scale(1) translate3d(-110px, 150px, 0)
+
+			&-next
+				z-index: 1
+
+				.about-slide
+					filter: blur(5px)
+					transform: scale(1) translate3d(-75px, 55px, 0)
+
+			&-next + .swiper-slide
+
+				.about-slide
+
+
+.about-slide
+	transform: scale(.2)
+	filter: blur(10px)
+	opacity: 0
+	transition: opacity .3s ease, transform .3s ease
+

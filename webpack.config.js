@@ -32,10 +32,10 @@ module.exports = {
 	devServer: {
 		contentBase: "./docs",
 		overlay: true,
-	    open: true,
-	    hot: true,
+	    // open: true,
+	    // hot: true,
 	    // inline: true,
-	    watchContentBase: true,
+	    // watchContentBase: true,
 	},
 	devtool: 'source-map',
 	module: {

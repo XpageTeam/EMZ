@@ -1,0 +1,33 @@
+.geography
+
+	&__title
+		font-size: 30px
+
+	&__text
+		max-width: 785px
+		margin: 25px 0 0
+		font-size: 14px
+		line-height: calc(26 / 14)
+
+	&__map
+		margin: 62px 0 0
+
+	&__list
+		margin: 90px 0 0
+
+.geo-list
+	column-count: 7
+	column-gap: 25px
+	font-size: 14px
+
+	li
+		break-inside: avoid
+
+		&:not(:first-child)
+			margin: 8px 0 0
+
+	&__link
+		transition: color .3s ease
+
+		&:hover, &:focus
+			color: var(--main-color)
