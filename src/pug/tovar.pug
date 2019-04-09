@@ -1,0 +1,68 @@
+html(lang="ru")
+	head
+		meta(charset="utf-8")
+		title Маслоохладители
+		include inc/head.pug
+		include inc/css.pug
+	body.inner.loading
+		include inc/header.pug
+		main#content
+			.inner-content
+				.inner-content__title
+					.wrapper
+						.title-block
+							.title-block__crumbs
+								.bread-crumbs
+									a.bread-crumbs__link(href="#") Главная
+									a.bread-crumbs__link(href="#") Каталог продукции
+									span.bread-crumbs__this Маслоохладители
+							.title-block__title
+								h1 Маслоохладители
+				.inner-content__content
+					.wrapper
+						.tovar
+							.tovar__desc
+								.tovar-desc
+									.tovar-desc__about
+										.tovar-about
+											.tovar-about__slider
+												.tovar-slider
+													.swiper-wrapper
+														figure.swiper-slide
+															img(src="img/photos/tovar-img.jpg")
+														- for (let i = 0; i < 10; i ++)
+															figure.swiper-slide
+																img.swiper-lazy(data-src="img/photos/tovar-img.jpg")
+																.swiper-lazy-preloader
+													.swiper-button-prev
+													.swiper-button-next
+													.swiper-pagination
+											.tovar-about__text
+												.text-page
+													p Производственные мощности позволяют изготавливать гидрогенераторы с воздушным охлаждением в широком диапазоне мощностей от 1 до 300 МВт, вертикального или горизонтального исполнения, удовлетворяя при этом практически любые требования заказчика.
+													p Гидрогенераторы поставляются комплектно со вспомогательными системами (возбуждения, охлаждения, торможения, пожаротушения, теплоконтроля и др.), с комплектами инструментов и приспособлений для монтажа, а также запасными частями на период гарантийной эксплуатации.
+													p Производственные мощности позволяют изготавливать гидрогенераторы с воздушным охлаждением в широком диапазоне мощностей от 1 до 300 МВт, вертикального или горизонтального исполнения, удовлетворяя при этом практически любые требования заказчика.
+													p Гидрогенераторы поставляются комплектно со вспомогательными системами (возбуждения, охлаждения, торможения, пожаротушения, теплоконтроля и др.), с комплектами инструментов и приспособлений для монтажа, а также запасными частями на период гарантийной эксплуатации.
+									.tovar-desc__list
+										.tovar-list
+											.tovar-list__title Маслоохладители
+											.tovar-list__list
+												ul.list
+													each item in ["Серия маслоохладителей – ДЦ", "Серия маслоохладителей – ОДЦ", "Серия маслоохладителей – УДЦБ", "Серия маслоохладителей – ДЦ", "Серия маслоохладителей – ОДЦ", "Серия маслоохладителей – УДЦБ", ]
+														li
+															a.list__link(href="#")=item
+							.tovar__subcatalog
+								.subcatalog
+									.subcatalog__title Виды маслоохладителей
+									.subcatalog__list
+										.catalog__list
+											each el in [{title: "Воздухоохладители", sub: "Мощность от 1,5 до 225 МВт для выработки электроэнергии в агрегатах с паровыми и газовыми турбинами"}, {title: "Газоохладители"}, {title: "Маслоохладители"}, {title: "Калориферы"}, {title: "Кожухотрубные теплообменники"}, {title: "Трубы оребренные"}, ]
+												.catalog__list-el
+													a.cat-item(href="#")
+														img.cat-item__img(src="img/photos/catalog-bg.jpg")
+														.cat-item__desc
+															.cat-item__title=el.title
+															if (el.sub)
+																.cat-item__subtitle=el.sub
+		include inc/footer.pug
+		include inc/scripts.pug

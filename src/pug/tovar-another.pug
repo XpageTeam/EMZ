@@ -1,0 +1,87 @@
+html(lang="ru")
+	head
+		meta(charset="utf-8")
+		title Гидрогенераторы
+		include inc/head.pug
+		include inc/css.pug
+	body.inner.loading
+		include inc/header.pug
+		main#content
+			.inner-content
+				.inner-content__title
+					.wrapper
+						.title-block
+							.title-block__crumbs
+								.bread-crumbs
+									a.bread-crumbs__link(href="#") Главная
+									a.bread-crumbs__link(href="#") Каталог продукции
+									span.bread-crumbs__this Гидрогенераторы
+							.title-block__title
+								h1 Гидрогенераторы
+				.inner-content__content
+					.wrapper
+						.tovar
+							.tovar__desc
+								.tovar-desc
+									.tovar-desc__about
+										.tovar-about
+											.tovar-about__slider
+												.tovar-slider
+													.swiper-wrapper
+														figure.swiper-slide
+															img(src="img/photos/another-tovar-img.jpg")
+														- for (let i = 0; i < 10; i ++)
+															figure.swiper-slide
+																img.swiper-lazy(data-src="img/photos/another-tovar-img.jpg")
+																.swiper-lazy-preloader
+													.swiper-button-prev
+													.swiper-button-next
+													.swiper-pagination
+											.tovar-about__text
+												.text-page
+													p Производственные мощности позволяют изготавливать гидрогенераторы с воздушным охлаждением в широком диапазоне мощностей от 1 до 300 МВт, вертикального или горизонтального исполнения, удовлетворяя при этом практически любые требования заказчика.
+													p Гидрогенераторы поставляются комплектно со вспомогательными системами (возбуждения, охлаждения, торможения, пожаротушения, теплоконтроля и др.), с комплектами инструментов и приспособлений для монтажа, а также запасными частями на период гарантийной эксплуатации.
+													p Производственные мощности позволяют изготавливать гидрогенераторы с воздушным охлаждением в широком диапазоне мощностей от 1 до 300 МВт, вертикального или горизонтального исполнения, удовлетворяя при этом практически любые требования заказчика.
+													p Гидрогенераторы поставляются комплектно со вспомогательными системами (возбуждения, охлаждения, торможения, пожаротушения, теплоконтроля и др.), с комплектами инструментов и приспособлений для монтажа, а также запасными частями на период гарантийной эксплуатации.
+													table(border="1")
+														thead
+															tr
+																th Тип гидрогенератора
+																th 
+																	p(style="text-align: center") Мощность, кВт
+																th 
+																	p(style="text-align: center") Частота вращения, об/мин
+																th 
+																	p(style="text-align: center") Напряжение, В
+																th 
+																	p(style="text-align: center") Конструктивное исполнение
+																th 
+																	p(style="text-align: center") Кол-во
+																th 
+																	p(style="text-align: center") Эксплуатирующая организация
+																th 
+																	p(style="text-align: center") Год поставки
+																th 
+																	p(style="text-align: center") Страна
+														tbody
+															- for (let i = 0; i < 10; i ++)
+																tr
+																	td  ВГС 260/20-24
+																	td
+																		p(style="text-align: center") 680
+																	td
+																		p(style="text-align: center") 680
+																	td
+																		p(style="text-align: center") 6 300
+																	td
+																		p(style="text-align: center") вертикальное
+																	td
+																		p(style="text-align: center") 1
+																	td
+																		p(style="text-align: center") Кузу-Гусарская ГЭС
+																	td
+																		p(style="text-align: center") 1955
+																	td
+																		p(style="text-align: center") Туркменистан
+		include inc/footer.pug
+		include inc/scripts.pug
