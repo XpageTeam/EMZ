@@ -54,5 +54,7 @@
     "> 1%",
     "last 2 version"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "lightgallery.js": "^1.1.3"
+  }
 }

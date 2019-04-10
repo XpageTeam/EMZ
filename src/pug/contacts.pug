@@ -1,0 +1,57 @@
+html(lang="ru")
+	head
+		meta(charset="utf-8")
+		title Контакты
+		include inc/head.pug
+		include inc/css.pug
+	body.inner.loading
+		include inc/header.pug
+		main#content
+			.inner-content
+				.inner-content__title
+					.wrapper
+						.title-block
+							.title-block__crumbs
+								.bread-crumbs
+									a.bread-crumbs__link(href="#") Главная
+									span.bread-crumbs__this Контакты
+							.title-block__title
+								h1 Контакты
+			
+				.inner-content__content
+					.wrapper
+						.contacts
+							.contacts__addresses
+								.address-list
+									.address-list__item
+										address.address-list__item-address 
+											.dep__title Адрес
+											span 457100 г. Троицк, Челябинской области, ул. им. Ю.А. Гагарина, д. 98А
+								.deps
+									.deps__item
+										.dep
+											.dep__title Отдел продаж
+											address.f-phone
+												a(href="tel:+7 (351) 729-88-58") +7 (351) 729-88-58
+											address.f-mail
+												a(href="mailto: tdsu@tdsu.ru") tdsu@tdsu.ru
+									.deps__item
+										.dep
+											.dep__title Отдел маркетинга
+											address.f-phone 
+												a(href="tel:+7 (351) 223-28-62") +7 (351) 223-28-62
+											address.f-mail
+												a(href="mailto: market@tdsu.ru") market@tdsu.ru
+									.deps__item
+										.dep
+											.dep__title Отдел снабжения
+											address.f-phone
+												a(href="tel:+7 (351) 225-08-88") +7 (351) 225-08-88
+											address.f-mail
+												a(href="mailto: santehural@tdsu.ru") santehural@tdsu.ru
+					.contacts__map
+						.map
+							<!-- Маркер для краты /img/ico-marker.svg -->
+							img(src="img/photos/map.jpg")
+		include inc/footer.pug
+		include inc/scripts.pug

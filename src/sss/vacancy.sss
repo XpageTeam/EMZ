@@ -1,0 +1,81 @@
+.vacancy-one
+
+	&:not(:first-child)
+		margin: 40px 0 0
+
+	&__title
+		color: #fff var(--main-color)
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding: 24px 74px 25px
+		cursor: pointer
+
+		&.js__active
+
+			+ .vacancy-one__body
+				display: block
+
+			.vacancy-one__title-btn
+				transform: rotateX(180deg)
+
+		span
+			font-size: 18px
+
+			&:not(:last-child)
+				margin-right: 30px
+
+
+		&-btn
+			border: none
+			size: 43px
+			background: #fff
+			transition: background .3s ease, color .3s ease
+			border-radius: 6px
+			display: block
+			margin: 0
+			position: relative
+
+			&:after
+				content: ""
+				position: absolute calc(50% - 5px) calc(50% - 3px) * *
+				size: 7px
+				transform: rotate(135deg)
+				border-right: 1px solid var(--main-color)
+				border-top: 1px solid var(--main-color)
+
+	&__body
+		padding: 64px 75px 60px
+		border: 1px solid var(--border-color)
+		display: none
+
+.vacancy-desc
+	display: flex
+	background: #F4F4F7
+	padding: 34px 84px 32px
+
+	&__item
+		width: 33.33%
+		padding-left: 30px
+
+		&-title
+			font-size: 14px
+			color: #8D909D
+
+			&:not(:last-child)
+				margin: 0 0 3px
+
+.vacancy-text
+	margin: 54px 0 0
+	font-size: 14px
+
+	&__notice
+		margin: 64px 0 0
+
+.vacancy-notice
+	color: #fff
+	padding: 25px 42px 24px 103px
+	background: url("/img/ico-resume.svg") left 42px center no-repeat, var(--main-color)
+
+	a
+		color: #fff

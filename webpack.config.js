@@ -28,6 +28,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, "./docs/"),
 		filename: "js/[name].js",
+		// publicPath: "/img/"
 	},
 	devServer: {
 		contentBase: "./docs",
@@ -43,7 +44,7 @@ module.exports = {
 			{
 				test: /\.ts$/,
 				loader: "ts-loader",
-				exclude: /node_modules/,
+				// exclude: /node_modules/,
 			},
 			{
 				test: /\.css$/,

@@ -22,11 +22,11 @@ class App {
 		return element
 	}
 
-	protected elementsGetter(selector: string): HTMLElement[]{
+	public static elementsGetter(selector: string): HTMLElement[]{
 		return App.transformNodeListToArray(document.querySelectorAll(selector))
 	}
 
-	protected static transformNodeListToArray(list: NodeList): HTMLElement[]{
+	public static transformNodeListToArray(list: NodeList): HTMLElement[]{
 		try{
 			return Array.prototype.slice.call(list)
 		}catch(e){
@@ -76,31 +76,49 @@ class App {
 	}
 }
 
-
-class EventListener extends App{
+class Element {
 	private _selector: string
-	private _els: HTMLElement[]
+	protected _els: HTMLElement[]
 
 	constructor (selector: HTMLElement[])
+	constructor (selector: NodeList)
 	constructor (selector: HTMLElement)
 	constructor (selector: string)
 	constructor (selector: any){
-		super()
-
 		if (typeof selector == "string")
-			this._els = this.elementsGetter(selector)
+			this._els = App.elementsGetter(selector)
 		else if (selector instanceof HTMLElement)
 			this._els = [selector]
 		else if (selector instanceof NodeList)
 			this._els = App.transformNodeListToArray(selector)
+		else if (selector instanceof Array && selector[0] instanceof HTMLElement)
+			this._els = selector
 		else
 			throw Error(`Invalid selector: ${selector}`)
 	}
+}
 
-	public add(event: string, callback: any): EventListener{
+interface EventOtions{
+	capture?: boolean,
+	once?: boolean,
+	passive?: boolean
+}
+
+class EventListener extends Element{
+
+	/** 
+	* Метод для подписки на событие
+	* @param event: string
+	* @param callback: function
+	* @param options: object
+	* @retrun EventListener
+	*/
+	public add(event: string, callback: any, options?: EventOtions): EventListener{
 
 		App.each(this._els, function(el:HTMLElement){
-			el.addEventListener(event, callback(el))
+			el.addEventListener(event, function(event){
+				callback(this, event)
+			}, options)
 		})
 
 		return this

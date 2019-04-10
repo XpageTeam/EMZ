@@ -1,0 +1,25 @@
+html(lang="ru")
+	head
+		meta(charset="utf-8")
+		title Сертификаты
+		include inc/head.pug
+		include inc/css.pug
+	body.inner.loading
+		include inc/header.pug
+		main#content
+			.inner-content
+				.inner-content__title
+					.wrapper
+						.title-block
+							.title-block__crumbs
+								.bread-crumbs
+									a.bread-crumbs__link(href="#") Главная
+									span.bread-crumbs__this Сертификаты
+							.title-block__title
+								h1 Сертификаты
+			
+				.inner-content__content
+					.wrapper
+						.serts
+		include inc/footer.pug
+		include inc/scripts.pug

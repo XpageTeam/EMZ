@@ -1,0 +1,94 @@
+.contacts
+	font-size: 14px
+
+	&__addresses
+		margin-bottom: rem(75)
+
+	&__map
+		margin: rem(90) 0 -103px
+
+.address-list
+	display: flex
+	flex-wrap: wrap
+
+	&__item
+		padding-top: 7px
+		padding-bottom: 13px
+
+		&-address
+			padding-left: 28px
+			display: block
+
+			&:not(:first-child)
+				margin: 13px 0 0
+
+		&-address
+			background: url("/img/ico-loc.svg") left top 3px no-repeat
+			background-size: 12px auto !important
+
+.deps
+	display: flex
+	flex-wrap: wrap
+	background: #F4F4F7
+	margin: 37px 0 0
+	padding: 49px 115px 29px
+	justify-content: space-between
+
+	&__item
+		display: flex
+		flex-direction: column
+		align-items: center
+		width: 30%
+		margin-bottom: 20px
+
+		&:nth-child(3n + 1)
+			align-items: flex-start
+
+			&:not(:last-child)
+				border-right: 1px solid #E3E3E7
+
+		&:nth-child(3n)
+			align-items: flex-end
+			border-left: 1px solid #E3E3E7
+
+.dep
+	flex: 1 1 auto
+
+	&__title
+		font-size: 14px
+		margin-bottom: 10px
+		color: #8D909D
+
+	.f
+
+		&-phone
+
+			&:before
+				background: url("/img/ico-phone.svg") center no-repeat
+
+			a
+
+				&:not(:hover, :focus)
+					color: #000
+
+		&-mail
+
+			&:before
+				background: url("/img/ico-mail.svg") center no-repeat
+
+		&-phone, &-mail
+			padding-left: 30px
+			position: relative
+
+			&:before
+				content: ""
+				position: absolute calc(50% - 6px) * * 0
+				size: 12px
+
+			&:not(:last-child)
+				margin-bottom: 5px
+
+.map
+
+	img
+		display: block
