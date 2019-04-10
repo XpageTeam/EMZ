@@ -1,7 +1,7 @@
 html(lang="ru")
 	head
 		meta(charset="utf-8")
-		title Сертификаты
+		title Сертификаты и лицензии
 		include inc/head.pug
 		include inc/css.pug
 	body.inner.loading
@@ -14,12 +14,20 @@ html(lang="ru")
 							.title-block__crumbs
 								.bread-crumbs
 									a.bread-crumbs__link(href="#") Главная
-									span.bread-crumbs__this Сертификаты
+									span.bread-crumbs__this Сертификаты и лицензии
 							.title-block__title
-								h1 Сертификаты
+								h1 Сертификаты и лицензии
 			
 				.inner-content__content
 					.wrapper
 						.serts
+							each item, i in ["Сертификат соответствия ISO 9001:2015", "Патент на промышленный образец №89454 \"Охладитель\"", "Патент на промысловый зразок", "Сертификат соответствия ВО-36 (3 кл. безопасности)", "Лицензия на конструирование оборудования для ядерной установки", "Лицензия на изготовление оборудования для ядерной установки", "Сертификат соответствия СМК", "Сертификат соответствия СМК. Приложение", "Патент №12626", ]
+								a.serts__item(href="img/photos/sert-"+i+".jpg")
+									.sert
+										.sert__img
+											img(src="img/photos/sert-"+i+".jpg")
+										.sert__text
+											.text-page
+												p=item
 		include inc/footer.pug
 		include inc/scripts.pug

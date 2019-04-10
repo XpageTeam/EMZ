@@ -1,6 +1,8 @@
 import Swiper from "swiper"
 import {App} from "./app"
 
+require("../sss/tovar.sss")
+
 App.domReady(function(){
 	App.each(".tovar-slider", function(el:HTMLElement){
 		const prevEl: HTMLElement = el.querySelector(".swiper-button-prev"),
