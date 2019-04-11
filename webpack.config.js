@@ -42,6 +42,16 @@ module.exports = {
 	module: {
 		rules: [
 			{
+                test: /\.woff?2$|\.ttf$|\.eot$/,
+                loader : 'file-loader',
+                options: {
+                    name : 'fonts/[name].[ext]',
+                    context: ''
+                    // outputPath : 'fonts/',
+                },
+                exclude: /(node_modules)/,
+            },
+			{
 				test: /\.ts$/,
 				loader: "ts-loader",
 				// exclude: /node_modules/,
@@ -65,7 +75,7 @@ module.exports = {
 			    	{
 			    		loader: 'file-loader',
 					    options: {
-					        name: '[path][name].[ext]',
+					        name: '../img/[name].[ext]',
 					        context: ''
 					    }
 			    	},
@@ -90,7 +100,13 @@ module.exports = {
 					},
 			        {
 			          loader: 'css-loader',
-			          options: { sourceMap: true }
+			          options: {
+			          	sourceMap: true,
+			          	url(url, resourcePath){
+			          		console.log(url, resourcePath)
+			          		return url
+			          	}
+			          }
 			        }, 
 			        {
 			        	loader: "resolve-url-loader"
@@ -139,15 +155,7 @@ module.exports = {
             //     },
             //     exclude: /(node_modules)/,
             },
-            {
-                test: /\.woff?2$|\.ttf$|\.eot$/,
-                loader : 'file-loader',
-                options: {
-                    name : '[name].[ext]',
-                    outputPath : 'fonts/',
-                },
-                exclude: /(node_modules)/,
-            }
+            
 		]
 	},
 	resolve: {
@@ -166,6 +174,10 @@ module.exports = {
 		}),
 		new CopyWebpackPlugin([{
 			from: 'src/img/',
+			to: path.resolve(__dirname, "docs/img")
+		}]),
+		new CopyWebpackPlugin([{
+			from: 'src/img/src',
 			to: path.resolve(__dirname, "docs/img")
 		}]),
 		new ImageminPlugin({
