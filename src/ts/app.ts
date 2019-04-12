@@ -80,6 +80,11 @@ class Element {
 	private _selector: string
 	protected _els: HTMLElement[]
 
+	/**
+	* Создание коллекции элементов
+	* @param selector: HTMLElement[] || NodeList || HTMLElement || string
+	* @return Element
+	*/  
 	constructor (selector: HTMLElement[])
 	constructor (selector: NodeList)
 	constructor (selector: HTMLElement)
@@ -108,7 +113,7 @@ class EventListener extends Element{
 
 	/** 
 	* Метод для подписки на событие
-	* @param event: string
+	* @param event: string - название js события
 	* @param callback: function
 	* @param options: object
 	* @retrun EventListener
@@ -119,6 +124,22 @@ class EventListener extends Element{
 			el.addEventListener(event, function(event){
 				callback(this, event)
 			}, options)
+		})
+
+		return this
+	}
+
+	/** 
+	* Метод для вызова события
+	* @param event: string - название js события
+	* @retrun EventListener
+	*/
+	public trigger(event: string): EventListener{
+		App.each(this._els, function(el: HTMLElement){
+			let evt: Event = document.createEvent("HTMLEvents");
+
+			evt.initEvent(event, false, true)
+			el.dispatchEvent(evt)
 		})
 
 		return this

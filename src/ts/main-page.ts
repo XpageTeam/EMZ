@@ -1,5 +1,5 @@
 import Swiper from "swiper"
-import {App, EventListener} from "./app"
+import {App} from "./app"
 
 import "./main-about"
 
@@ -15,9 +15,12 @@ App.domReady((_ : any): void => {
 				clickable: true,
 				dynamicMainBullets: 6
 			},
+			autoplay: true,
 			a11y: false,
 			lazy: {
 				loadPrevNext: true,
+				loadOnTransitionStart: true,
+				loadPrevNextAmount: 2
 			}
 		})
 	})()

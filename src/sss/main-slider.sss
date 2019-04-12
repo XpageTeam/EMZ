@@ -73,6 +73,15 @@
 			align-items: stretch
 			pointer-events: all
 
+		.wrapper
+			position: relative
+
+			&:before
+				content: ""
+				position: absolute calc(100% + 89px) * * 15px
+				background: url("../img/ico-mouse.svg") no-repeat
+				size: 27px
+
 .slide-text
 
 	&__title
@@ -87,3 +96,30 @@
 
 		&:not(:last-child)
 			margin-bottom: 47px
+
+@media (max-width: 1460px)
+	.main-slider
+
+		.wrapper
+			box-sizing: border-box
+
+		&__slide
+
+			.wrapper
+
+
+				&:before
+					top: calc(100% + 30px)
+
+	.slide-text
+
+		&__title
+			font-size: 36px
+
+			&:not(:last-child)
+				margin-bottom: 15px
+
+		&__subtitle
+
+			&:not(:last-child)
+				margin-bottom: 30px
