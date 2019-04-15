@@ -15,7 +15,6 @@ pages.forEach(function (file) {
 		new HtmlWebpackPlugin({
 			filename: './' + base + '.html',
 			template: './src/pug/' + base + '.pug',
-			// inject: true
 		})
 	)
 });
@@ -27,16 +26,11 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname, "./docs/"),
-		filename: "js/[name].js",
-		// publicPath: "/img/"
+		filename: "js/[name].js"
 	},
 	devServer: {
 		contentBase: "./docs",
-		overlay: true,
-	    // open: true,
-	    // hot: true,
-	    // inline: true,
-	    // watchContentBase: true,
+		overlay: true
 	},
 	devtool: 'source-map',
 	module: {
@@ -47,7 +41,6 @@ module.exports = {
                 options: {
                     name : 'fonts/[name].[ext]',
                     context: ''
-                    // outputPath : 'fonts/',
                 },
                 exclude: /(node_modules)/,
             },
@@ -78,19 +71,12 @@ module.exports = {
 					        name: '../img/[name].[ext]',
 					        context: ''
 					    }
-			    	},
-			    	// {
-			    	// 	loader: 'image-webpack-loader',
-        //     			options: {}
-			    	// }
+			    	}
 			    ],
 			},
 			{
 				test: /\.sss$/,
 				use: [
-					// {
-					// 	loader : 'file-loader',
-					// },
 					{
 						loader: "style-loader",
 						options: { sourceMap: true }
@@ -99,14 +85,7 @@ module.exports = {
 			        	loader: MiniCssExtractPlugin.loader
 					},
 			        {
-			          loader: 'css-loader',
-			          options: {
-			          	sourceMap: true,
-			          	url(url, resourcePath){
-			          		console.log(url, resourcePath)
-			          		return url
-			          	}
-			          }
+			          loader: 'css-loader'
 			        }, 
 			        {
 			        	loader: "resolve-url-loader"
@@ -125,9 +104,6 @@ module.exports = {
 			{
 				test: /\.pug$/,
 				use: [
-					// {
-			  //       	loader: "file-loader"
-			  //       },
 					{
 						loader: "pug-loader",
 						options: {
@@ -136,24 +112,6 @@ module.exports = {
 						}
 					},
 				]
-            //     test: /\.svg$|\.png$|\.jpe?g$/,
-            //     loader : 'url-loader',
-            //     options: {
-            //         name : '[name].[ext]',
-            //         outputPath : 'img/',
-            //         limit : 5000,
-            //     },
-            //     exclude: /(node_modules)/,
-            // },
-            // {
-            //     test: /\.gif$/,
-            //     loader : 'url-loader',
-            //     options: {
-            //         name : '[name].[ext]',
-            //         outputPath : 'img/',
-            //         emitFile : false,
-            //     },
-            //     exclude: /(node_modules)/,
             },
             
 		]
