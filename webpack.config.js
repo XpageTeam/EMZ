@@ -30,7 +30,8 @@ module.exports = {
 	},
 	devServer: {
 		contentBase: "./docs",
-		overlay: true
+		overlay: true,
+		disableHostCheck: true,
 	},
 	devtool: 'source-map',
 	module: {
@@ -85,7 +86,8 @@ module.exports = {
 			        	loader: MiniCssExtractPlugin.loader
 					},
 			        {
-			          loader: 'css-loader'
+			          loader: 'css-loader',
+			          options: { sourceMap: true }
 			        }, 
 			        {
 			        	loader: "resolve-url-loader"

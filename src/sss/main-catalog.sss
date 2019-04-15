@@ -48,7 +48,7 @@
 
 
 
-@media (max-width: 1460px)
+@media (max-width: 1460px) and (min-width: 1000px)
 	.main-catalog
 
 		&__cont
@@ -69,8 +69,71 @@
 			width: calc((100% - 30px * 3) / 3)
 			margin: 0 0 30px 30px
 
-@media (max-width: 1200px)
+@media (max-width: 1200px) and (min-width: 1000px)
 	.main-catalog
 
 		&__cont
 			padding: 30px 0
+
+@media (max-width: 1000px) and (min-width: 660px)
+	.main-catalog
+		
+		&__cont
+			padding: 20px 0
+
+		&__title
+
+			&:not(:last-child)
+				margin-bottom: 15px
+
+		&__subtitle
+
+			&:not(:last-child)
+				margin-bottom: 30px
+	
+	.catalog-list
+		margin: 0 0 -20px -20px
+
+		&__item
+			width: calc((100% - 20px * 2) / 2)
+			margin: 0 0 20px 20px
+
+	.catalog-item
+		padding: 20px
+
+		&__btn
+			flex: none
+
+@media (max-width: 660px)
+	.main-catalog
+
+		&__cont
+			padding: 20px 0
+
+		&__title
+
+			&:not(:last-child)
+				margin-bottom: 15px
+
+		&__subtitle
+			font-size: 14px
+
+			&:not(:last-child)
+				margin-bottom: 25px
+
+	.catalog-list
+		margin: 0
+		display: block
+
+		&__item
+			width: auto
+			margin: 0
+
+			&:not(:first-child)
+				margin: 16px 0 0
+
+	.catalog-item
+		padding: 16px
+
+		&__btn
+			flex: none

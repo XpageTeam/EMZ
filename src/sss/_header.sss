@@ -118,6 +118,18 @@
 	a
 		font-size: 14px
 
+
+
+@media (min-width: 1200px)
+	.head__seach-btn
+		display: none
+
+@media (min-width: 1000px)
+	.head__burger
+		display: none
+
+
+
 @media (max-width: 1400px)
 	.head
 		padding: 13px 0
@@ -138,3 +150,91 @@
 		&__link
 			padding: 14px 7px
 			font-size: 12px
+
+@media (max-width: 1200px) and (min-width: 1000px), (max-width: 660px)
+	.head
+
+		&__search
+			display: none
+
+			&-btn
+				margin: 0 15px 0
+
+	.search-btn
+		size: 40px
+		background: url("../img/ico-search.svg") center no-repeat
+		border: none
+		padding: 0
+
+
+@media (max-width: 1000px)
+	body
+		padding: 95px 0 0
+		
+	.head
+		border-bottom: 1px solid var(--border-color)
+		position: fixed 0 0 * 0
+		width: 100%
+
+		&__menu
+			display: none
+
+		&__wrap
+			position: relative
+			align-items: flex-end
+
+		&__logo
+			margin-right: auto !important
+
+		&__links
+			position: absolute 0 0 * *
+
+			.h
+
+				&-phone, &-mail
+					display: none
+
+		&__search
+			display: block
+
+			&-btn
+				margin: 0
+				display: none
+
+		&__burger
+			padding: 10px
+			margin-right: -10px
+
+			&.js__active
+				
+				.burger
+					width: 25px
+
+					span
+						opacity: 0
+
+					&:before
+						transform: rotate(45deg)
+
+					&:after
+						transform: rotate(-45deg)
+
+	.burger
+		position: relative
+		size: 30px 20px
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		cursor: pointer
+
+		&:after, &:before
+			content: ""
+			transform-origin: left
+			display: inline-block
+
+		&:matches(:after, :before, & span)
+			background: var(--main-color)
+			height: 2px
+
+		span
+			transition: opacity .3s ease

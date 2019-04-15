@@ -22,12 +22,13 @@
 	background: #fff
 	flex: 1 1 auto
 	text-align: center
+	padding: 10px
 
 	&:before
 		content: ""
 		display: inline-block
 		height: 100%
-		width: 2px
+		width: 0
 		vertical-align: middle
 
 	img
@@ -36,7 +37,7 @@
 
 
 
-@media (max-width: 1460px)
+@media (max-width: 1460px) and (min-width: 1000px)
 	.main-partners
 
 		&__cont
@@ -51,3 +52,36 @@
 		&__item
 			width: calc((100% - 30px * 6) / 6)
 			margin: 0 0 30px 30px
+
+
+@media (max-width: 1000px) and (min-width: 660px)
+	.main-partners
+
+		&__cont
+			padding: 20px 0 30px
+
+		&__title
+			margin-bottom: 15px
+
+	.partners-list
+		margin: 0 0 -20px -20px
+
+		&__item
+			width: calc((100% - 20px * 4) / 4)
+			margin: 0 0 20px 20px
+
+@media (max-width: 660px)
+	.main-partners
+
+		&__cont
+			padding: 20px 0 30px
+
+		&__title
+			margin-bottom: 15px
+
+	.partners-list
+		margin: 0 0 -16px -16px
+
+		&__item
+			width: calc((100% - 16px * 2) / 2)
+			margin: 0 0 16px 16px

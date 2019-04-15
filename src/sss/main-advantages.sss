@@ -36,7 +36,7 @@
 		line-height: calc(26 / 14)
 
 
-@media (max-width: 1460px)
+@media (max-width: 1460px) and (min-width: 1000px)
 	.main-advantages
 
 		&__cont
@@ -52,7 +52,7 @@
 			width: calc((100% - 40px * 4) / 4)
 			margin: 0 0 40px 40px
 
-@media (max-width: 1200px)
+@media (max-width: 1200px) and (min-width: 1000px)
 	.main-advantages
 
 		&__cont
@@ -64,3 +64,56 @@
 
 			&:not(:last-child)
 				margin-bottom: 15px
+
+
+@media (max-width: 1000px) and (min-width: 660px)
+	.main-advantages
+
+		&__cont
+			padding: 20px 0 30px
+
+		&__title
+			margin-bottom: 20px
+
+	.advantages-list
+		margin: 0 0 -20px -20px
+
+		&__item
+			width: calc((100% - 20px * 2) / 2)
+			margin: 0 0 20px 20px	
+
+@media (max-width: 660px)
+	.main-advantages
+
+		&__cont
+			padding: 20px 0
+
+		&__title
+			margin-bottom: 20px
+
+	.advantages-list
+		margin: 0
+		display: block
+
+		&__item
+			width: auto
+			margin: 0
+
+			&:not(:first-child)
+				margin: 20px 0 0
+
+	.advantage
+		display: block
+
+		&:after
+			content: ""
+			display: table
+			clear: both
+
+		&__img
+			float: left
+			margin-right: 15px
+			width: 50px
+
+			&:not(:last-child)
+				margin-bottom: 5px

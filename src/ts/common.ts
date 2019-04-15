@@ -4,8 +4,13 @@ import "./standart-page"
 import "./tovar"
 import "./vacancy"
 import "./serts"
+// import "./mobile-menu"
 
-import {App, EventListener} from "./app"
+import {App, EventListener, MobileMenu} from "./app"
+
+interface window extends Window{
+	menu: MobileMenu
+}
 
 App.domReady(() => {
 	new EventListener(".h-search__submit").add("click", function(el: HTMLElement, event: Event){
@@ -16,5 +21,15 @@ App.domReady(() => {
 
 			event.preventDefault()
 		}
+	})
+
+	new MobileMenu({
+		burger: ".head__burger",
+		menu: ".footer__right",
+		menuActiveClass: "js__opened",
+		bodyActiveClass: "js__menu__opened",
+		ignoreWarnings: false,
+		fixBody: true,
+		media: "(max-width: 1000px)"
 	})
 })

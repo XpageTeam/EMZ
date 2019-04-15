@@ -60,7 +60,8 @@ App.domReady(() => {
 App.domReady(() => {
 	App.each(".standart-slider", function(el:HTMLElement){
 		let prevEl: HTMLElement = el.querySelector(".swiper-button-prev"),
-			nextEl: HTMLElement = el.querySelector(".swiper-button-next");
+			nextEl: HTMLElement = el.querySelector(".swiper-button-next"),
+			pagination: HTMLElement = el.querySelector(".swiper-pagination");
 
 		new Swiper(el, {
 			loop: true,
@@ -74,6 +75,17 @@ App.domReady(() => {
 				prevEl: prevEl,
 				nextEl: nextEl
 			},
+			breakpoints: {
+				660: {
+					navigation: {},
+					pagination: {
+						el: pagination,
+						type: "bullets",
+						dynamicBullets: true,
+						dynamicMainBullets: 3
+					}
+				}
+			}
 		})
 	})
 })
