@@ -79,3 +79,51 @@
 
 	a
 		color: #fff
+
+
+
+@media (max-width: 1500px)
+	.vacancy-one
+
+		&__title, &__body
+			padding: 20px 30px
+	
+	.vacancy-desc
+		padding: 30px
+
+
+@media (max-width: 1000px)
+	.vacancy
+
+		&-text
+			margin: 20px 0 0
+
+		&-one
+
+			&:not(:first-child)
+				margin: 20px 0 0
+
+	.vacancy-desc
+		flex-wrap: wrap
+		justify-content: space-between
+
+		&__item
+			padding-left: 0
+			width: calc(50% - 20px)
+			margin-bottom: 20px
+
+			&:last-child
+				margin-bottom: 0
+
+			&:nth-last-child(2):nth-child(odd)
+				margin-bottom: 0
+
+@media (max-width: 660px)
+	.vacancy-desc
+		display: block
+
+		&__item
+			width: auto
+
+			&:not(:last-child)
+				margin-bottom: 20px !important
