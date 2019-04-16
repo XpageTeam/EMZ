@@ -25,3 +25,53 @@
 	&__img
 		flex: none
 		margin-right: 40px
+
+@media (max-width: 1500px) and (min-width: 1400px)
+	.sert
+		padding: 30px
+
+		&__img
+			margin-right: 20px
+
+@media (max-width: 1400px) and (min-width: 660px)
+	.sert
+		padding: 25px
+
+		&__img
+			margin-right: 15px
+
+@media (max-width: 1400px) and (min-width: 1200px)
+	.serts
+		margin: 0 0 -20px -20px
+
+		&__item
+			width: calc((100% - 20px * 3) / 3)
+			margin: 0 0 20px 20px
+
+@media (max-width: 1200px) and (min-width: 660px)
+	.serts
+		margin: 0 0 -20px -20px
+
+		&__item
+			width: calc((100% - 20px * 2) / 2)
+			margin: 0 0 20px 20px
+	
+
+@media (max-width: 660px)
+	.serts
+		margin: -18px -16px -29px
+		display: block
+
+		&__item
+			width: auto
+			margin: 0
+
+			&:not(:first-child)
+				margin: 1px 0 0
+
+	.sert
+		padding: 16px
+
+		&__img
+			margin-right: 16px
+			max-width: 60px

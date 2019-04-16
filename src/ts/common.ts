@@ -4,6 +4,7 @@ import "./standart-page"
 import "./tovar"
 import "./vacancy"
 import "./serts"
+import "./head"
 // import "./mobile-menu"
 
 import {App, EventListener, MobileMenu} from "./app"

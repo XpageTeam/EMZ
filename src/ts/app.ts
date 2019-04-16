@@ -108,6 +108,11 @@ class Element {
 	}
 
 
+	/** 
+	* Метод сравнения элементов
+	* @param selector: HTMLElement || string
+	* @return boolean
+	*/
 	public is(selector: HTMLElement): boolean
 	public is(selector: string): boolean
 	public is(selector: any): boolean{
@@ -121,6 +126,10 @@ class Element {
 		return this._els[0] == element[0]
 	}
 
+	/** Метод проверки содержания текущими элементами передаваемых
+	* @param selector: Element || HTMLElement || HTMLElement[] || NodeList || string
+	* @return boolean
+	*/
 	public has(selector: Element): boolean
 	public has(selector: HTMLElement): boolean
 	public has(selector: HTMLElement[]): boolean
@@ -157,7 +166,49 @@ class Element {
 		}
 
 		return false
-		
+	}
+
+	/**
+	* Назначить класс всем текущим элементам
+	* @param className: string
+	* @return Element
+	*/
+	public addClass(className: string): Element{
+		App.each(this._els, (el: HTMLElement) => {
+			el.classList.add(className)
+		})
+		return this
+	}
+
+	/**
+	* Удалить класс у всех текущих элементов
+	* @param className: string
+	* @return Element
+	*/
+	public removeClass(className: string): Element{
+		App.each(this._els, (el: HTMLElement) => {
+			el.classList.remove(className)
+		})
+		return this
+	}
+
+	/**
+	* Переключения класса у всех текущих элементов
+	* @param className: string
+	* @return Element
+	*/
+	public toggleClass(className: string, callback: Function = () => {}): Element{
+		App.each(this._els, (el: HTMLElement) => {
+			if (el.classList.contains(className)){
+				el.classList.remove(className)
+
+				callback(false)
+			}else{
+				el.classList.add(className)
+				callback(true)
+			}
+		})
+		return this
 	}
 }
 
@@ -321,8 +372,6 @@ class mobileMenu{
 		if (!window.matchMedia(this.settings.media).matches)
 			return
 
-		console.log(this.state)
-
 		if (this.state)
 			this.closeMenu()
 		else
@@ -348,4 +397,4 @@ class mobileMenu{
 	}
 }
 
-export {App, EventListener, mobileMenu as MobileMenu}
+export {App, EventListener, mobileMenu as MobileMenu, Element}
