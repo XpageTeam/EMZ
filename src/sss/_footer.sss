@@ -132,6 +132,9 @@
 			flex-direction: column
 			transition: transform .3s ease
 			border-left: 1px solid var(--border-color)
+			overflow-y: auto
+			-webkit-overflow-scrolling: touch
+			overflow-scrolling: touch
 
 			&-right
 				flex: 1 1 auto
@@ -176,10 +179,18 @@
 			border-bottom: 1px solid var(--border-color)
 			margin: 0 !important
 
-			&:not(&--parent)
-				display: none
+		&:not(.js__opened)
 
-			&--parent:first-child
+			.f-menu
+
+				&__item
+
+					&:not(.f-menu__item--parent)
+						display: none
+
+		&.js__have-submenu
+
+			.f-menu__item--parent:first-child
 
 				.f-menu
 

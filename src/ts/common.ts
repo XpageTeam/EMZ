@@ -7,7 +7,9 @@ import "./serts"
 import "./head"
 // import "./mobile-menu"
 
-import {App, EventListener, MobileMenu} from "./app"
+const adaptiveMedia: string = "(max-width: 1000px)";
+
+import {App, EventListener, MobileMenu, Element} from "./app"
 
 interface window extends Window{
 	menu: MobileMenu
@@ -31,6 +33,27 @@ App.domReady(() => {
 		bodyActiveClass: "js__menu__opened",
 		ignoreWarnings: false,
 		fixBody: true,
-		media: "(max-width: 1000px)"
+		media: adaptiveMedia
 	})
+})
+
+App.domReady(() => {
+	App.each(".f-menu", (el: HTMLElement) => {
+		const menu: Element = new Element(el);
+
+		if (menu.find(".f-menu__item:not(.f-menu__item--parent)").length){
+			menu.addClass("js__have-submenu")
+
+			new EventListener(menu.find(".f-menu__item--parent")).add("click", (el: HTMLElement, event: Event) => {
+
+				new Element(".f-menu").removeClass("js__opened")
+				menu.toggleClass("js__opened")
+
+				if (window.matchMedia(adaptiveMedia).matches)
+					event.preventDefault()
+
+			})
+		}
+	})
+
 })

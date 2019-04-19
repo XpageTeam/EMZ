@@ -9,22 +9,22 @@ module.exports = ({ file, options, env }) => {
 			}),
 			require("postcss-short"),
 			require("postcss-preset-env"),
-			require("postcss-font-magician")(require("./config/fonts.js")),
+			// require("postcss-font-magician")(require("./config/fonts.js")),
 			// require("postcss-assets"),
 			require("postcss-flexbugs-fixes"),
 			require("postcss-nesting"),
 			require("postcss-nested"),
 			require('css-mqpacker'),
 			require("autoprefixer"),
-			require('cssnano')({
-				preset: [
-					'default', {
-						discardComments: {
-							removeAll: true,
-						}
-					}
-				]
-			})
+			// require('cssnano')({
+			// 	preset: [
+			// 		'default', {
+			// 			discardComments: {
+			// 				removeAll: true,
+			// 			}
+			// 		}
+			// 	]
+			// })
 		]
 	}
 }

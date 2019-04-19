@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "finish:him": "webpack --mode production --progress",
+    "finish": "webpack --mode production --config webpack-finish.config.js --progress && node ftp-deploy.js",
     "deploy": "webpack --mode production --progress",
     "watch": "webpack-dev-server --mode development --host 192.168.2.106 --port 80 --watch --open"
   },
@@ -46,9 +46,12 @@
     "ts-loader": "^5.3.3",
     "typescript": "^3.4.3",
     "url-loader": "^1.1.2",
+    "vinyl-fs": "^3.0.3",
+    "vinyl-ftp": "^0.6.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.3.1"
+    "webpack-dev-server": "^3.3.1",
+    "webpack-ftp-upload-plugin": "^1.0.3"
   },
   "browserslist": [
     "> 1%",

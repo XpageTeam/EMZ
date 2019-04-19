@@ -82,27 +82,47 @@ class App {
 }
 
 class Element {
-	private _selector: string
+	// private _selector: string
 	protected _els: HTMLElement[]
+	public _length: number = 0
+
+	set els(elements: HTMLElement[]){
+		this._els = elements
+
+		this._length = elements.length || 0
+	}
+
+	get els(){
+		return this._els
+	}
+
+	get length(){
+		return this._length
+	}
 
 	/**
 	* Создание коллекции элементов
-	* @param selector: HTMLElement[] || NodeList || HTMLElement || string
+	* @param selector: HTMLElement[] || NodeList || HTMLElement || Element || string
 	* @return Element
 	*/  
 	constructor (selector: HTMLElement[])
 	constructor (selector: NodeList)
+	constructor (selector: Element)
 	constructor (selector: HTMLElement)
 	constructor (selector: string)
 	constructor (selector: any){
+
+
 		if (typeof selector == "string")
-			this._els = App.elementsGetter(selector)
+			this.els = App.elementsGetter(selector)
 		else if (selector instanceof HTMLElement)
-			this._els = [selector]
+			this.els = [selector]
 		else if (selector instanceof NodeList)
-			this._els = App.transformNodeListToArray(selector)
-		else if (selector instanceof Array && selector[0] instanceof HTMLElement)
-			this._els = selector
+			this.els = App.transformNodeListToArray(selector)
+		else if (selector instanceof Array && (selector[0] instanceof HTMLElement || !selector.length))
+			this.els = selector
+		else if (selector instanceof Element)
+			this.els = selector.els
 		else
 			throw Error(`Invalid selector: ${selector}`)
 	}
@@ -123,7 +143,7 @@ class Element {
 		else if (selector instanceof HTMLElement)
 			element = [selector]
 
-		return this._els[0] == element[0]
+		return this.els[0] == element[0]
 	}
 
 	/** Метод проверки содержания текущими элементами передаваемых
@@ -146,14 +166,14 @@ class Element {
 			searchElements = selector._els
 		else if (selector instanceof NodeList)
 			searchElements = App.transformNodeListToArray(selector)
-		else if (selector instanceof Array && selector[0] instanceof HTMLElement)
+		else if (selector instanceof Array && (selector[0] instanceof HTMLElement || !selector.length))
 			searchElements = selector
 		else
 			throw Error(`Invalid selector: ${selector}`)
 
 		let isFinded: boolean = false;
 
-		for (let el of this._els){
+		for (let el of this.els){
 
 			for (let target of searchElements)
 				if (el.contains(target)){
@@ -174,7 +194,7 @@ class Element {
 	* @return Element
 	*/
 	public addClass(className: string): Element{
-		App.each(this._els, (el: HTMLElement) => {
+		App.each(this.els, (el: HTMLElement) => {
 			el.classList.add(className)
 		})
 		return this
@@ -186,7 +206,7 @@ class Element {
 	* @return Element
 	*/
 	public removeClass(className: string): Element{
-		App.each(this._els, (el: HTMLElement) => {
+		App.each(this.els, (el: HTMLElement) => {
 			el.classList.remove(className)
 		})
 		return this
@@ -198,7 +218,7 @@ class Element {
 	* @return Element
 	*/
 	public toggleClass(className: string, callback: Function = () => {}): Element{
-		App.each(this._els, (el: HTMLElement) => {
+		App.each(this.els, (el: HTMLElement) => {
 			if (el.classList.contains(className)){
 				el.classList.remove(className)
 
@@ -209,6 +229,34 @@ class Element {
 			}
 		})
 		return this
+	}
+
+	public hasClass(targetClass: string): boolean{
+		for (const el of this.els)
+			if (el.classList.contains(targetClass))
+				return true
+
+		return false
+	}
+
+	public find(selector: string): Element{
+		let searchingElements = new Array();
+
+		App.each(this.els, (el: HTMLElement) => {
+			const findedElements: NodeList = el.querySelectorAll(selector);
+
+			if (!findedElements.length)
+				return
+
+			for (const el of App.transformNodeListToArray(findedElements))
+				searchingElements.push(el)
+
+			// searchingElements.concat(App.transformNodeListToArray(findedElements))
+
+			// console.log(searchingElements instanceof Array, App.transformNodeListToArray(findedElements) instanceof Array)
+		})
+
+		return new Element(searchingElements)
 	}
 }
 
@@ -229,7 +277,7 @@ class EventListener extends Element{
 	*/
 	public add(event: string, callback: any, options?: EventOtions): EventListener{
 
-		App.each(this._els, function(el:HTMLElement){
+		App.each(this.els, function(el:HTMLElement){
 			el.addEventListener(event, function(event){
 				callback(this, event)
 			}, options)
@@ -244,7 +292,7 @@ class EventListener extends Element{
 	* @retrun EventListener
 	*/
 	public trigger(event: string): EventListener{
-		App.each(this._els, function(el: HTMLElement){
+		App.each(this.els, function(el: HTMLElement){
 			let evt: Event = document.createEvent("HTMLEvents");
 
 			evt.initEvent(event, false, true)

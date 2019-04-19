@@ -4,6 +4,7 @@ const path = require("path"),
 	cleanWebpackPlugin = require("clean-webpack-plugin"),
 	CopyWebpackPlugin = require("copy-webpack-plugin"),
 	HtmlWebpackPlugin = require("html-webpack-plugin"),
+	webpack = require("webpack"),
 	glob = require("glob");
 
 let pages = glob.sync(__dirname + '/src/pug/*.pug'),
@@ -18,6 +19,8 @@ pages.forEach(function (file) {
 		})
 	)
 });
+
+// console.log(new webpack.Compiler())
 
 module.exports = {
 	entry: {
@@ -159,5 +162,32 @@ module.exports = {
 			cacheFolder: path.resolve(__dirname, './cache'),
 
 		}),
+		// new WebpackFtpUpload({
+  //           host: connectionSettings.server.host,
+  //           port: '22',
+  //           username: connectionSettings.server.user,
+  //           password: connectionSettings.server.password,
+  //           local: path.join(__dirname, 'docs/css'),
+  //           path: remotePathCss,
+  //       }),
+		// new WebpackFtpUpload({
+  //           host: connectionSettings.server.host,
+  //           port: '21',
+  //           username: connectionSettings.server.user,
+  //           password: connectionSettings.server.password,
+  //           local: path.join(__dirname, 'docs/img'),
+  //           path: remotePathImg,
+  //       }),
+		// new WebpackFtpUpload({
+  //           host: connectionSettings.server.host,
+  //           port: '21',
+  //           username: connectionSettings.server.user,
+  //           password: connectionSettings.server.password,
+  //           local: path.join(__dirname, 'docs/js'),
+  //           path: remotePathJs,
+  //       })
+  		// new webpack.Compiler().hooks.afterCompile.tap("lol", params => {
+  		// 	console.log(123214)
+  		// })
 	].concat(pluginsOptions)
 }
