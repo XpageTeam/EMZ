@@ -17,6 +17,8 @@ html(lang="ru")
 									span.bread-crumbs__this О компании
 							.title-block__title
 								h1 О компании
+								each link in ["История", "Цель/миссия", "Производство", "Инжиниринг", "Фин.отчетность"]
+									a.title-block__title-link(href="#")=link
 				.inner-content__content
 					.wrapper
 						.standart-page
