@@ -62,3 +62,5 @@ const sameHeights = (objects, settings = {}) => {
 };
 
 export {Sticky, sameHeights}
+
+

@@ -1,6 +1,7 @@
 import IMask from "iMask"
 
 document.addEventListener("DOMContentLoaded", e => {
+
 	;(function(){
 		let mask = document.querySelectorAll("[data-mask]");
 

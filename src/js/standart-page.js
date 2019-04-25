@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", e => {
+
 	$(".text-page > table").wrap('<div class="table-wrap"><div class="table-wrap__track"></div></div>')
 
 	$(".table-wrap")

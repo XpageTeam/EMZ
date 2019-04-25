@@ -35,6 +35,10 @@ App.domReady(() => {
 		fixBody: true,
 		media: adaptiveMedia
 	})
+
+
+	
+
 })
 
 App.domReady(() => {
@@ -57,3 +61,5 @@ App.domReady(() => {
 	})
 
 })
+
+

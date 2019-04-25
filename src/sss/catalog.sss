@@ -14,11 +14,23 @@
 .cat-item
 	flex: 1 1 auto
 	position: relative
+	overflow: hidden
+
+	&:hover 
+		img
+			transform: scale(1.1)
 
 	&:after
 		content: ""
 		position: absolute 0
 		background: linear-gradient(to bottom, rgba(#000, .000001), rgba(#000, .7))
+
+	&:hover
+
+		.cat-item
+
+			&__subtitle
+				max-height: 200px
 
 	&__desc
 		position: absolute 0
@@ -29,20 +41,31 @@
 		flex-direction: column
 		justify-content: flex-end
 		padding: 10px 53px 40px 49px
+		// overflow: hidden
+
 
 	&__img
 		width: 100%
 		display: block
+		transition: transform 1s ease
+
+
+
 
 	&__title
 		font-size: 18px
-		line-height: calc(2 / 18)
+		line-height: calc(18 / 18)
 		margin-bottom: 18px
 
 	&__subtitle
+		overflow: hidden
+		max-height: 0
+		transition: max-height 1s ease
 		opacity: .8
 		font-size: 14px
 		line-height: calc(26 / 14)
+		// margin-bottom: -100%
+
 
 
 

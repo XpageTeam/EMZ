@@ -6,7 +6,7 @@
   "scripts": {
     "finish": "webpack --mode production --config webpack-finish.config.js --progress && node ftp-deploy.js",
     "deploy": "webpack --mode production --progress",
-    "watch": "webpack-dev-server --mode development --host 192.168.2.106 --port 80 --watch --open"
+    "watch": "webpack-dev-server --mode development --host localhost --port 3000 --watch --open"
   },
   "author": "danil.khandys",
   "license": "ISC",
