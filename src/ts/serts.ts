@@ -12,5 +12,6 @@ declare let window: myWindow
 App.domReady(() => {
 	window.lightGallery(document.querySelector('.serts'), {
 	    // thumbnail:true
+	    download: false,
 	});
 })

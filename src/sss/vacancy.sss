@@ -80,6 +80,18 @@
 	a
 		color: #fff
 
+.vacancy__list
+	> .vacancy-notice
+		margin-top: 80px
+		padding: 38px 42px 45px 125px
+		background: url('../img/ico-resume.svg') left 50px center no-repeat, var(--main-color)
+		background-size: 41px
+
+		a
+			color: #fff
+
+
+
 
 
 @media (max-width: 1500px)
@@ -118,6 +130,13 @@
 			&:nth-last-child(2):nth-child(odd)
 				margin-bottom: 0
 
+	.vacancy__list
+		> .vacancy-notice
+			margin-top: 40px
+
+			a
+				color: #fff
+
 @media (max-width: 660px)
 	.vacancy-desc
 		display: block
@@ -127,3 +146,8 @@
 
 			&:not(:last-child)
 				margin-bottom: 20px !important
+
+	.vacancy__list 
+		> .vacancy-notice
+			padding: 20px
+			background-image: none
