@@ -4,11 +4,15 @@ import {App} from "./app"
 require("../sss/main-about.sss")
 
 App.domReady(function(){
-	App.each(".about-slider", function(el:HTMLElement){
-		new Swiper(el, {
+	App.each(".main-about__slider", function(el:HTMLElement){
+		const prevEl: HTMLElement = el.querySelector(".swiper-button-prev"),
+			nextEl: HTMLElement = el.querySelector(".swiper-button-next"),
+			slider: HTMLElement = el.querySelector(".about-slider");
+
+		new Swiper(slider, {
 			effect: "fade",
 			fadeEffect: {
-			    crossfade: true
+			    crossfade: false
 			},
 			// loop: true,
 			a11y: false,
@@ -18,8 +22,8 @@ App.domReady(function(){
 				loadPrevNextAmount: 3
 			},
 			navigation: {
-				prevEl: ".swiper-button-prev",
-				nextEl: ".swiper-button-next",
+				prevEl: prevEl,
+				nextEl: nextEl,
 			}
 		})
 	})
