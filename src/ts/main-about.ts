@@ -12,15 +12,21 @@ App.domReady(function(){
 		new Swiper(slider, {
 			effect: "fade",
 			fadeEffect: {
-			    crossfade: false
+			    crossfade: true
 			},
-			// loop: true,
+			// loopedSlides: 3,
+			// loopAdditionalSlides: 3,
+			preventInteractionOnTransition: false,
+			loop: true,
+			slidesPerView: 1,
 			a11y: false,
 			lazy: {
 				loadPrevNext: true,
 				loadOnTransitionStart: true,
 				loadPrevNextAmount: 3
 			},
+			longSwipesMs: 0,
+			speed: 0,
 			navigation: {
 				prevEl: prevEl,
 				nextEl: nextEl,
