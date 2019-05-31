@@ -3265,8 +3265,12 @@ button.swiper-pagination-bullet {
 		width: calc((100% - 100px * 4) / 4);
 		margin: 0 0 55px 100px
 }
+.advantage__img{
+		height: 70px;
+}
 .advantage__img img{
-			display: block
+			display: block;
+			max-height: 100%
 }
 .advantage__img:not(:last-child){
 			margin-bottom: 30px
@@ -3976,7 +3980,8 @@ button.swiper-pagination-bullet {
 		.advantage__img{
 			float: left;
 			margin-right: 15px;
-			width: 50px
+			width: 50px;
+			height: auto
 	}
 
 			.advantage__img:not(:last-child){
