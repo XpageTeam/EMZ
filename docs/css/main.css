@@ -600,12 +600,13 @@
 	display: flex;
 }
 
-.tovar-desc__about:not(:last-child) {
-			width: calc(100% - 418px - 61px);
-}
+.tovar-desc__about {
+		width: calc(100% - 418px - 61px);
 
-.tovar-desc__about:last-child {
-			width: 100%;
+		/* &:not(:last-child) */
+
+		/* &:last-child */
+		/* 	width: 100% */
 }
 
 .tovar-desc__list {
@@ -630,6 +631,9 @@
 	background-color: var(--main-color);
 	background-color: var(--main-color);
 	padding: 54px 56px 50px;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 155px;
 }
 
 .tovar-list__title {
@@ -2471,7 +2475,7 @@ li{
 				background: #ececec
 }
 .text-page table td, .text-page table th{
-			padding: 15px;
+			padding: 10px 15px;
 			font-weight: inherit
 }
 .text-page table td:not([valign]), .text-page table td[valign="middle"], .text-page table th:not([valign]), .text-page table th[valign="middle"]{
@@ -3511,8 +3515,11 @@ button.swiper-pagination-bullet {
 		-webkit-box-align: center;
 		    -ms-flex-align: center;
 		        align-items: center;
-		width: 30%;
-		margin-bottom: 20px
+		width: 25%;
+		margin-bottom: 20px;
+		-webkit-box-flex: 0;
+		    -ms-flex: none;
+		        flex: none
 }
 .deps__item:nth-child(3n + 1){
 			-webkit-box-align: start;
@@ -3522,7 +3529,10 @@ button.swiper-pagination-bullet {
 .deps__item:nth-child(3n + 1):not(:last-child){
 				border-right: 1px solid #E3E3E7
 }
-.deps__item:nth-child(3n){
+.deps__item:nth-last-child(2){
+			border-left: 1px solid #E3E3E7
+}
+.deps__item:nth-child(3n):not(:nth-last-child(2)), .deps__item:last-child{
 			-webkit-box-align: end;
 			    -ms-flex-align: end;
 			        align-items: flex-end;
@@ -4517,82 +4527,18 @@ button.swiper-pagination-bullet {
 			margin: 30px 0 0
 	}
 }
-@media (min-width: 1200px){
-	.head__search-btn{
-		display: none
-	}
-}
-@media (min-width: 1000px){
-	.head__burger{
-		display: none
-	}
-}
-@media (max-width: 1400px){
-	.head{
-		padding: 13px 0;
-	}
-
-		.head__logo{
-			max-width: 70px;
-			margin-right: 15px
-	}
-
-		.head__menu{
-			margin-right: 10px
-	}
-
-		.head__search{
-			margin-right: 15px
-	}
-}
-@media (max-width: 1300px){
-
-		.h-menu__link{
-			padding: 14px 7px;
-			font-size: 12px
-	}
-}
-@media (max-width: 1200px) and (min-width: 1000px), (max-width: 660px){
-
-		.head__wrap{
-			-ms-flex-wrap: wrap;
-			    flex-wrap: wrap
-	}
-
-		.head__search{
-			-webkit-box-ordinal-group: 2;
-			    -ms-flex-order: 1;
-			        order: 1;
-			width: 100%;
-			margin: 15px 0 0;
-			overflow: hidden;
-			-webkit-transition: height .3s ease, margin .3s ease;
-			transition: height .3s ease, margin .3s ease;
-			height: 38px
-	}
-
-			.head__search:not(.js__opened){
-				height: 0;
-				margin: 0
-	}
-
-			.head__search-btn{
-				margin: 0 15px 0
-	}
-
-	.h-search{
-		width: 100%
-	}
-
-	.search-btn{
-		width: 40px;
-		height: 40px;
-		background: url(../img/ico-search.svg) center no-repeat;
-		border: none;
-		padding: 0
-	}
-}
 @media (max-width: 1000px){
+
+		.deps__item{
+			width: 30%
+	}
+
+			.deps__item:last-child{
+				border-left: none;
+				-webkit-box-align: start;
+				    -ms-flex-align: start;
+				        align-items: flex-start
+	}
 	body{
 		padding: 95px 0 0
 	}
@@ -4848,6 +4794,81 @@ button.swiper-pagination-bullet {
 				color: #fff;
 				background-color: #BF0B2A;
 				background-color: var(--main-color)
+	}
+}
+@media (min-width: 1200px){
+	.head__search-btn{
+		display: none
+	}
+}
+@media (min-width: 1000px){
+	.head__burger{
+		display: none
+	}
+}
+@media (max-width: 1400px){
+	.head{
+		padding: 13px 0;
+	}
+
+		.head__logo{
+			max-width: 70px;
+			margin-right: 15px
+	}
+
+		.head__menu{
+			margin-right: 10px
+	}
+
+		.head__search{
+			margin-right: 15px
+	}
+}
+@media (max-width: 1300px){
+
+		.h-menu__link{
+			padding: 14px 7px;
+			font-size: 12px
+	}
+}
+@media (max-width: 1200px) and (min-width: 1000px), (max-width: 660px){
+
+		.head__wrap{
+			-ms-flex-wrap: wrap;
+			    flex-wrap: wrap
+	}
+
+		.head__search{
+			-webkit-box-ordinal-group: 2;
+			    -ms-flex-order: 1;
+			        order: 1;
+			width: 100%;
+			margin: 15px 0 0;
+			overflow: hidden;
+			-webkit-transition: height .3s ease, margin .3s ease;
+			transition: height .3s ease, margin .3s ease;
+			height: 38px
+	}
+
+			.head__search:not(.js__opened){
+				height: 0;
+				margin: 0
+	}
+
+			.head__search-btn{
+				margin: 0 15px 0
+	}
+
+	.h-search{
+		width: 100%
+	}
+
+	.search-btn{
+		width: 40px;
+		height: 40px;
+		background: url(../img/ico-search.svg) center no-repeat;
+		border: none;
+		padding: 0
 	}
 }
 @media (max-width: 1460px){
